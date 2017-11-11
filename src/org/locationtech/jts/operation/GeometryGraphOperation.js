@@ -2,7 +2,6 @@ import BoundaryNodeRule from '../algorithm/BoundaryNodeRule';
 import extend from '../../../../extend';
 import GeometryGraph from '../geomgraph/GeometryGraph';
 import RobustLineIntersector from '../algorithm/RobustLineIntersector';
-
 export default function GeometryGraphOperation() {
 	this._li = new RobustLineIntersector();
 	this._resultPrecisionModel = null;
