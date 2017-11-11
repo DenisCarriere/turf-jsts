@@ -59,7 +59,7 @@
   },
   "scripts": {
     "test-manual": "NODE_PATH=src mocha --timeout 10s --compilers js:babel-register --recursive test/manual",
-    "test": "NODE_PATH=src nyc mocha --timeout 10s --compilers js:babel-register --recursive test/auto/node test/manual",
+    "test": "NODE_PATH=src mocha --timeout 10s --compilers js:babel-register --recursive test/auto/node test/manual",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
   }
 }
