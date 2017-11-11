@@ -1,11 +1,9 @@
-import extend from '../../../../extend';
-export default function CoordinateFilter() {}
-extend(CoordinateFilter.prototype, {
-	filter: function (coord) {},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return CoordinateFilter;
-	}
-});
+export default class CoordinateFilter {
+  filter (coord) {}
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return CoordinateFilter
+  }
+}
