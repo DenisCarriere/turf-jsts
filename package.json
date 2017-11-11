@@ -6,7 +6,6 @@
   "module": "index.js",
   "files": [
     "index.js",
-    "index.d.ts",
     "main.js",
     "src"
   ],

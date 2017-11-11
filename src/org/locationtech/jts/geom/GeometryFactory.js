@@ -17,6 +17,7 @@ import PrecisionModel from './PrecisionModel';
 import Serializable from '../../../../java/io/Serializable';
 import Assert from '../util/Assert';
 import MultiLineString from './MultiLineString';
+
 export default function GeometryFactory() {
 	this._precisionModel = null;
 	this._coordinateSequenceFactory = null;

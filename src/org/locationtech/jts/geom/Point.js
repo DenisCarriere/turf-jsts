@@ -10,6 +10,7 @@ import Puntal from './Puntal';
 import Envelope from './Envelope';
 import Assert from '../util/Assert';
 import inherits from '../../../../inherits';
+
 export default function Point() {
 	this._coordinates = null;
 	let coordinates = arguments[0], factory = arguments[1];
