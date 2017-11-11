@@ -1,7 +1,6 @@
 import GeometryFactory from '../geom/GeometryFactory'
 import PrecisionModel from '../geom/PrecisionModel'
 import GeoJSONParser from './GeoJSONParser'
-import extend from '../../../../extend'
 
 /**
  * Converts a geometry in GeoJSON to a {@link Geometry}.
@@ -16,13 +15,12 @@ import extend from '../../../../extend'
  * @param {GeometryFactory} geometryFactory
  * @constructor
  */
-export default function GeoJSONReader (geometryFactory) {
-  this.geometryFactory = geometryFactory || new GeometryFactory()
-  this.precisionModel = this.geometryFactory.getPrecisionModel()
-  this.parser = new GeoJSONParser(this.geometryFactory)
-}
-
-extend(GeoJSONReader.prototype, {
+export default class GeoJSONReader {
+  constructor (geometryFactory) {
+    this.geometryFactory = geometryFactory || new GeometryFactory()
+    this.precisionModel = this.geometryFactory.getPrecisionModel()
+    this.parser = new GeoJSONParser(this.geometryFactory)
+  }
   /**
    * Reads a GeoJSON representation of a {@link Geometry}
    *
@@ -40,7 +38,7 @@ extend(GeoJSONReader.prototype, {
     }
 
     return geometry
-  },
+  }
 
   // NOTE: this is a hack
   reducePrecision (geometry) {
@@ -58,4 +56,4 @@ extend(GeoJSONReader.prototype, {
       }
     }
   }
-})
+}

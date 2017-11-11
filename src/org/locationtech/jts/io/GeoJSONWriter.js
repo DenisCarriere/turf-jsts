@@ -3,7 +3,6 @@
  */
 
 import GeoJSONParser from './GeoJSONParser'
-import extend from '../../../../extend'
 
 /**
  * Writes the GeoJSON representation of a {@link Geometry}. The
@@ -19,11 +18,10 @@ import extend from '../../../../extend'
  * @param {GeometryFactory} geometryFactory
  * @constructor
  */
-export default function GeoJSONWriter () {
-  this.parser = new GeoJSONParser(this.geometryFactory)
-}
-
-extend(GeoJSONWriter.prototype, {
+export default class GeoJSONWriter {
+  constructor () {
+    this.parser = new GeoJSONParser(this.geometryFactory)
+  }
   /**
    * Converts a <code>Geometry</code> to its GeoJSON representation.
    *
@@ -35,4 +33,4 @@ extend(GeoJSONWriter.prototype, {
   write (geometry) {
     return this.parser.write(geometry)
   }
-})
+}

@@ -1,6 +1,5 @@
 import Coordinate from '../geom/Coordinate'
 import GeometryFactory from '../geom/GeometryFactory'
-import extend from '../../../../extend'
 
 const regExes = {
   'typeStr': /^\s*(\w+)\s*\(\s*(.*)\s*\)\s*$/,
@@ -24,11 +23,10 @@ const regExes = {
  * @constructor
  * @private
  */
-export default function WKTParser (geometryFactory) {
-  this.geometryFactory = geometryFactory || new GeometryFactory()
-}
-
-extend(WKTParser.prototype, {
+export default class WKTParser {
+  constructor (geometryFactory) {
+    this.geometryFactory = geometryFactory || new GeometryFactory()
+  }
   /**
    * Deserialize a WKT string and return a geometry. Supports WKT for POINT,
    * MULTIPOINT, LINESTRING, LINEARRING, MULTILINESTRING, POLYGON, MULTIPOLYGON,
@@ -57,7 +55,7 @@ extend(WKTParser.prototype, {
     if (geometry === undefined) throw new Error('Could not parse WKT ' + wkt)
 
     return geometry
-  },
+  }
 
   /**
    * Serialize a geometry into a WKT string.
@@ -68,7 +66,7 @@ extend(WKTParser.prototype, {
    */
   write (geometry) {
     return this.extractGeometry(geometry)
-  },
+  }
 
   /**
    * Entry point to construct the WKT for a single Geometry object.
@@ -91,7 +89,7 @@ extend(WKTParser.prototype, {
     }
     return data
   }
-})
+}
 
 /**
  * Object with properties corresponding to the geometry types. Property values

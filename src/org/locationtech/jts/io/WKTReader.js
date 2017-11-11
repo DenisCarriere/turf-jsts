@@ -1,7 +1,6 @@
 import GeometryFactory from '../geom/GeometryFactory'
 import PrecisionModel from '../geom/PrecisionModel'
 import WKTParser from './WKTParser'
-import extend from '../../../../extend'
 
 /**
  * Converts a geometry in Well-Known Text format to a {@link Geometry}.
@@ -20,13 +19,12 @@ import extend from '../../../../extend'
  * @param {GeometryFactory} geometryFactory
  * @constructor
  */
-export default function WKTReader (geometryFactory) {
-  this.geometryFactory = geometryFactory || new GeometryFactory()
-  this.precisionModel = this.geometryFactory.getPrecisionModel()
-  this.parser = new WKTParser(this.geometryFactory)
-}
-
-extend(WKTReader.prototype, {
+export default class WKTReader {
+  constructor (geometryFactory) {
+    this.geometryFactory = geometryFactory || new GeometryFactory()
+    this.precisionModel = this.geometryFactory.getPrecisionModel()
+    this.parser = new WKTParser(this.geometryFactory)
+  }
   /**
    * Reads a Well-Known Text representation of a {@link Geometry}
    *
@@ -46,7 +44,7 @@ extend(WKTReader.prototype, {
     }
 
     return geometry
-  },
+  }
 
   reducePrecision (geometry) {
     if (geometry.coordinate) {
@@ -61,4 +59,4 @@ extend(WKTReader.prototype, {
       }
     }
   }
-})
+}

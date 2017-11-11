@@ -1,6 +1,5 @@
 import Coordinate from '../geom/Coordinate'
 import GeometryFactory from '../geom/GeometryFactory'
-import extend from '../../../../extend'
 
 const geometryTypes = ['Point', 'MultiPoint', 'LineString', 'MultiLineString', 'Polygon', 'MultiPolygon']
 
@@ -17,11 +16,10 @@ const geometryTypes = ['Point', 'MultiPoint', 'LineString', 'MultiLineString', '
  * @constructor
  * @private
  */
-export default function GeoJSONParser (geometryFactory) {
-  this.geometryFactory = geometryFactory || new GeometryFactory()
-}
-
-extend(GeoJSONParser.prototype, {
+export default class GeoJSONParser {
+  constructor (geometryFactory) {
+    this.geometryFactory = geometryFactory || new GeometryFactory()
+  }
   /**
    * Deserialize a GeoJSON object and return the Geometry or Feature(Collection) with JSTS Geometries
    *
@@ -52,7 +50,7 @@ extend(GeoJSONParser.prototype, {
 
     // feature or feature collection
     return parse[type].apply(this, [obj])
-  },
+  }
 
   /**
    * Serialize a Geometry object into GeoJSON
@@ -71,7 +69,7 @@ extend(GeoJSONParser.prototype, {
 
     return extract[type].apply(this, [geometry])
   }
-})
+}
 
 const parse = {
   /**
