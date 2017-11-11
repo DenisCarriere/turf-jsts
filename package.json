@@ -1,0 +1,66 @@
+{
+  "name": "turf-jsts",
+  "description": "A JavaScript library of spatial predicates and functions for processing geometry",
+  "version": "1.5.0",
+  "main": "main.js",
+  "module": "index.js",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "main.js",
+    "src"
+  ],
+  "author": "Björn Harrtell <bjorn@wololo.org>",
+  "contributors": [
+    "Denis Carriere <@DenisCarriere>"
+  ],
+  "keywords": [
+    "Turf",
+    "JSTS",
+    "JavaScript",
+    "JTS",
+    "Java",
+    "Topology",
+    "Geometry"
+  ],
+  "license": "(EDL-1.0 OR EPL-1.0)",
+  "devDependencies": {
+    "@std/esm": "*",
+    "babel-core": "*",
+    "babel-plugin-external-helpers": "*",
+    "babel-preset-env": "*",
+    "babel-register": "*",
+    "chai": "*",
+    "cheerio": "*",
+    "codecov": "*",
+    "expect.js": "*",
+    "git-rev-sync": "*",
+    "jsdoc": "*",
+    "mocha": "*",
+    "mocha-lcov-reporter": "*",
+    "nyc": "*",
+    "rollup": "*",
+    "rollup-plugin-babel": "*",
+    "rollup-plugin-includepaths": "*",
+    "rollup-plugin-replace": "*",
+    "standard": "*",
+    "uglify-js": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/DenisCarriere/turf-jsts.git"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "jsts",
+      "ol"
+    ]
+  },
+  "scripts": {
+    "test-manual": "NODE_PATH=src mocha --timeout 10s --compilers js:babel-register --recursive test/manual",
+    "test": "NODE_PATH=src nyc mocha --timeout 10s --compilers js:babel-register --recursive test/auto/node test/manual",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  }
+}
