@@ -6,11 +6,10 @@ import Comparator from '../../../../java/util/Comparator'
 import Envelope from './Envelope'
 
 export default class CoordinateArrays {
-  constructor () {
-    this.ForwardComparator = ForwardComparator
-    this.BidirectionalComparator = BidirectionalComparator
-    this.coordArrayType = new Array(0).fill(null)
-  }
+  static get ForwardComparator () { return ForwardComparator }
+  static get BidirectionalComparator () { return BidirectionalComparator }
+  static get coordArrayType () { return new Array(0).fill(null) }
+
   interfaces_ () {
     return []
   }

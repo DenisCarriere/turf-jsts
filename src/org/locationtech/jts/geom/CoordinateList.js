@@ -4,7 +4,6 @@ import ArrayList from '../../../../java/util/ArrayList'
 export default class CoordinateList extends ArrayList {
   constructor () {
     super()
-    this.coordArrayType = new Array(0).fill(null)
     if (arguments.length === 0) {
     } else if (arguments.length === 1) {
       let coord = arguments[0]
@@ -17,6 +16,7 @@ export default class CoordinateList extends ArrayList {
       this.add(coord, allowRepeated)
     }
   }
+  static get coordArrayType () { return new Array(0).fill(null) }
   getCoordinate (i) {
     return this.get(i)
   }
