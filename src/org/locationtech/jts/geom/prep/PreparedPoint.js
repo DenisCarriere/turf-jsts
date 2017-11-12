@@ -1,20 +1,14 @@
-import extend from '../../../../../extend';
-import BasicPreparedGeometry from './BasicPreparedGeometry';
-import inherits from '../../../../../inherits';
-export default function PreparedPoint() {
-	let point = arguments[0];
-	BasicPreparedGeometry.call(this, point);
+import BasicPreparedGeometry from './BasicPreparedGeometry'
+
+export default class PreparedPoint extends BasicPreparedGeometry {
+  intersects (g) {
+    if (!this.envelopesIntersect(g)) return false
+    return this.isAnyTargetComponentInTest(g)
+  }
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return PreparedPoint
+  }
 }
-inherits(PreparedPoint, BasicPreparedGeometry);
-extend(PreparedPoint.prototype, {
-	intersects: function (g) {
-		if (!this.envelopesIntersect(g)) return false;
-		return this.isAnyTargetComponentInTest(g);
-	},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return PreparedPoint;
-	}
-});
