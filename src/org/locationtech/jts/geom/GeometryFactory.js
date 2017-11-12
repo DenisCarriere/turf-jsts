@@ -51,18 +51,10 @@ export default class GeometryFactory {
     }
     return this.createPolygon(this.createLinearRing([new Coordinate(envelope.getMinX(), envelope.getMinY()), new Coordinate(envelope.getMinX(), envelope.getMaxY()), new Coordinate(envelope.getMaxX(), envelope.getMaxY()), new Coordinate(envelope.getMaxX(), envelope.getMinY()), new Coordinate(envelope.getMinX(), envelope.getMinY())]), null)
   }
-  createLineString () {
-    if (arguments.length === 0) {
-      return this.createLineString(this.getCoordinateSequenceFactory().create([]))
-    } else if (arguments.length === 1) {
-      if (arguments[0] instanceof Array) {
-        let coordinates = arguments[0]
-        return this.createLineString(coordinates !== null ? this.getCoordinateSequenceFactory().create(coordinates) : null)
-      } else if (hasInterface(arguments[0], CoordinateSequence)) {
-        let coordinates = arguments[0]
-        return new LineString(coordinates, this)
-      }
-    }
+  createLineString (coordinates) {
+    if (!coordinates) return new LineString(this.getCoordinateSequenceFactory().create([]), this)
+    else if (coordinates instanceof Array) return new LineString(this.getCoordinateSequenceFactory().create(coordinates), this)
+    else if (hasInterface(coordinates, CoordinateSequence)) return new LineString(coordinates, this)
   }
   createMultiLineString () {
     if (arguments.length === 0) {
