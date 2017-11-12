@@ -1,32 +1,23 @@
-import Coordinate from './Coordinate';
-import extend from '../../../../extend';
-import RuntimeException from '../../../../java/lang/RuntimeException';
-import inherits from '../../../../inherits';
-export default function TopologyException() {
-	this.pt = null;
-	if (arguments.length === 1) {
-		let msg = arguments[0];
-		RuntimeException.call(this, msg);
-	} else if (arguments.length === 2) {
-		let msg = arguments[0], pt = arguments[1];
-		RuntimeException.call(this, TopologyException.msgWithCoord(msg, pt));
-		this.name = 'TopologyException';
-		this.pt = new Coordinate(pt);
-	}
+import Coordinate from './Coordinate'
+import RuntimeException from '../../../../java/lang/RuntimeException'
+
+export default class TopologyException extends RuntimeException {
+  constructor (msg, pt) {
+    super(TopologyException.msgWithCoord(msg, pt))
+    this.pt = pt ? new Coordinate(pt) : null
+    this.name = 'TopologyException'
+  }
+  getCoordinate () {
+    return this.pt
+  }
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return TopologyException
+  }
+  static msgWithCoord (msg, pt) {
+    if (!pt) return msg + ' [ ' + pt + ' ]'
+    return msg
+  }
 }
-inherits(TopologyException, RuntimeException);
-extend(TopologyException.prototype, {
-	getCoordinate: function () {
-		return this.pt;
-	},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return TopologyException;
-	}
-});
-TopologyException.msgWithCoord = function (msg, pt) {
-	if (pt !== null) return msg + " [ " + pt + " ]";
-	return msg;
-};
