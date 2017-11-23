@@ -9,14 +9,14 @@ import PointBuilder from './PointBuilder'
 import SnapIfNeededOverlayOp from './snap/SnapIfNeededOverlayOp'
 import Label from '../../geomgraph/Label'
 import OverlayNodeFactory from './OverlayNodeFactory'
-import GeometryGraphOperation from '../GeometryGraphOperation'
+import { GeometryGraphOp } from '../geometrygraph'
 import EdgeList from '../../geomgraph/EdgeList'
 import ArrayList from '../../../../../java/util/ArrayList'
 import Assert from '../../util/Assert'
 import PlanarGraph from '../../geomgraph/PlanarGraph'
 import GeometryMapper from '../../geom/util/GeometryMapper'
 
-export default class OverlayOp extends GeometryGraphOperation {
+export default class OverlayOp extends GeometryGraphOp {
   constructor () {
     const g0 = arguments[0]
     const g1 = arguments[1]

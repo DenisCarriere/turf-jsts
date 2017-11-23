@@ -6,7 +6,7 @@ import UnaryUnionOp from './operation/union/UnaryUnionOp';
 import UnionOp from './operation/union/UnionOp';
 import SnapIfNeededOverlayOp from './operation/overlay/snap/SnapIfNeededOverlayOp';
 import InteriorPointLine from './algorithm/InteriorPointLine';
-import IsSimpleOp from './operation/IsSimpleOp';
+import IsSimpleOp from './operation/issimple/IsSimpleOp';
 import BufferOp from './operation/buffer/BufferOp';
 import ConvexHull from './algorithm/ConvexHull';
 import Centroid from './algorithm/Centroid';

@@ -2,11 +2,11 @@ import Geometry from '../../geom/Geometry'
 import hasInterface from '../../../../../hasInterface'
 import RelateComputer from './RelateComputer'
 import BoundaryNodeRule from '../../algorithm/BoundaryNodeRule'
-import GeometryGraphOperation from '../GeometryGraphOperation'
+import { GeometryGraphOp } from '../geometrygraph'
 import RectangleContains from '../predicate/RectangleContains'
 import RectangleIntersects from '../predicate/RectangleIntersects'
 
-export default class RelateOp extends GeometryGraphOperation {
+export default class RelateOp extends GeometryGraphOp {
   constructor () {
     if (arguments.length === 2) {
       const g0 = arguments[0]
