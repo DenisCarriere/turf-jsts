@@ -1,20 +1,15 @@
-import DirectedEdgeStar from '../../geomgraph/DirectedEdgeStar';
-import Node from '../../geomgraph/Node';
-import extend from '../../../../../extend';
-import inherits from '../../../../../inherits';
-import NodeFactory from '../../geomgraph/NodeFactory';
-export default function OverlayNodeFactory() {
-	NodeFactory.apply(this);
+import DirectedEdgeStar from '../../geomgraph/DirectedEdgeStar'
+import Node from '../../geomgraph/Node'
+import NodeFactory from '../../geomgraph/NodeFactory'
+
+export default class OverlayNodeFactory extends NodeFactory {
+  createNode (coord) {
+    return new Node(coord, new DirectedEdgeStar())
+  }
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return OverlayNodeFactory
+  }
 }
-inherits(OverlayNodeFactory, NodeFactory);
-extend(OverlayNodeFactory.prototype, {
-	createNode: function (coord) {
-		return new Node(coord, new DirectedEdgeStar());
-	},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return OverlayNodeFactory;
-	}
-});

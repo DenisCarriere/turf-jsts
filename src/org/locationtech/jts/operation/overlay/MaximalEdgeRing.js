@@ -1,44 +1,43 @@
-import MinimalEdgeRing from './MinimalEdgeRing';
-import extend from '../../../../../extend';
-import EdgeRing from '../../geomgraph/EdgeRing';
-import ArrayList from '../../../../../java/util/ArrayList';
-import inherits from '../../../../../inherits';
-export default function MaximalEdgeRing() {
-	let start = arguments[0], geometryFactory = arguments[1];
-	EdgeRing.call(this, start, geometryFactory);
+import MinimalEdgeRing from './MinimalEdgeRing'
+import EdgeRing from '../../geomgraph/EdgeRing'
+import ArrayList from '../../../../../java/util/ArrayList'
+
+export default class MaximalEdgeRing extends EdgeRing {
+  constructor () {
+    const start = arguments[0]
+    const geometryFactory = arguments[1]
+    super(start, geometryFactory)
+  }
+  buildMinimalRings () {
+    const minEdgeRings = new ArrayList()
+    let de = this._startDe
+    do {
+      if (de.getMinEdgeRing() === null) {
+        const minEr = new MinimalEdgeRing(de, this._geometryFactory)
+        minEdgeRings.add(minEr)
+      }
+      de = de.getNext()
+    } while (de !== this._startDe)
+    return minEdgeRings
+  }
+  setEdgeRing (de, er) {
+    de.setEdgeRing(er)
+  }
+  linkDirectedEdgesForMinimalEdgeRings () {
+    let de = this._startDe
+    do {
+      const node = de.getNode()
+      node.getEdges().linkMinimalDirectedEdges(this)
+      de = de.getNext()
+    } while (de !== this._startDe)
+  }
+  getNext (de) {
+    return de.getNext()
+  }
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return MaximalEdgeRing
+  }
 }
-inherits(MaximalEdgeRing, EdgeRing);
-extend(MaximalEdgeRing.prototype, {
-	buildMinimalRings: function () {
-		var minEdgeRings = new ArrayList();
-		var de = this._startDe;
-		do {
-			if (de.getMinEdgeRing() === null) {
-				var minEr = new MinimalEdgeRing(de, this._geometryFactory);
-				minEdgeRings.add(minEr);
-			}
-			de = de.getNext();
-		} while (de !== this._startDe);
-		return minEdgeRings;
-	},
-	setEdgeRing: function (de, er) {
-		de.setEdgeRing(er);
-	},
-	linkDirectedEdgesForMinimalEdgeRings: function () {
-		var de = this._startDe;
-		do {
-			var node = de.getNode();
-			node.getEdges().linkMinimalDirectedEdges(this);
-			de = de.getNext();
-		} while (de !== this._startDe);
-	},
-	getNext: function (de) {
-		return de.getNext();
-	},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return MaximalEdgeRing;
-	}
-});
