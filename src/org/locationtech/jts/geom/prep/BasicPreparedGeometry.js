@@ -1,5 +1,4 @@
 import PointLocator from '../../algorithm/PointLocator'
-import extend from '../../../../../extend'
 import ComponentCoordinateExtracter from '../util/ComponentCoordinateExtracter'
 import PreparedGeometry from './PreparedGeometry'
 
@@ -70,4 +69,4 @@ export default class BasicPreparedGeometry {
   getClass () {
     return BasicPreparedGeometry
   }
-})
+}

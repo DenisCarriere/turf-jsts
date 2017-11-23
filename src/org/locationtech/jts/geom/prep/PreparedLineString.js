@@ -1,9 +1,7 @@
 import FastSegmentSetIntersectionFinder from '../../noding/FastSegmentSetIntersectionFinder'
-import extend from '../../../../../extend'
 import SegmentStringUtil from '../../noding/SegmentStringUtil'
 import PreparedLineStringIntersects from './PreparedLineStringIntersects'
 import BasicPreparedGeometry from './BasicPreparedGeometry'
-import inherits from '../../../../../inherits'
 
 export default class PreparedLineString extends BasicPreparedGeometry {
   constructor (line) {
