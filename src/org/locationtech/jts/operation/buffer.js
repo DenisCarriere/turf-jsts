@@ -1,3 +1,4 @@
+// buffer
 export { default as BufferBuilder } from './buffer/BufferBuilder'
 export { default as BufferInputLineSimplifier } from './buffer/BufferInputLineSimplifier'
 export { default as BufferOp } from './buffer/BufferOp'
@@ -9,6 +10,7 @@ export { default as OffsetSegmentGenerator } from './buffer/OffsetSegmentGenerat
 export { default as OffsetSegmentString } from './buffer/OffsetSegmentString'
 export { default as RightmostEdgeFinder } from './buffer/RightmostEdgeFinder'
 export { default as SubgraphDepthLocater } from './buffer/SubgraphDepthLocater'
+
 // validate
 export { default as BufferCurveMaximumDistanceFinder } from './buffer/validate/BufferCurveMaximumDistanceFinder'
 export { default as BufferDistanceValidator } from './buffer/validate/BufferDistanceValidator'

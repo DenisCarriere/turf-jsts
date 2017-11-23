@@ -1,7 +1,10 @@
-import IsValidOp from './valid/IsValidOp'
-import ConsistentAreaTester from './valid/ConsistentAreaTester'
-
-export {
-  IsValidOp,
-  ConsistentAreaTester
-}
+// valid
+export { default as ConnectedInteriorTester } from './valid/ConnectedInteriorTester'
+export { default as ConsistentAreaTester } from './valid/ConsistentAreaTester'
+export { default as IndexedNestedRingTester } from './valid/IndexedNestedRingTester'
+export { default as IsValidOp } from './valid/IsValidOp'
+export { default as QuadtreeNestedRingTester } from './valid/QuadtreeNestedRingTester'
+export { default as RepeatedPointTester } from './valid/RepeatedPointTester'
+export { default as SimpleNestedRingTester } from './valid/SimpleNestedRingTester'
+export { default as SweeplineNestedRingTester } from './valid/SweeplineNestedRingTester'
+export { default as TopologyValidationError } from './valid/TopologyValidationError'
