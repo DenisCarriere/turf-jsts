@@ -1,21 +1,17 @@
-import extend from '../../../../../extend';
-import Edge from '../../planargraph/Edge';
-import inherits from '../../../../../inherits';
-export default function PolygonizeEdge() {
-	Edge.apply(this);
-	this._line = null;
-	let line = arguments[0];
-	this._line = line;
+import Edge from '../../planargraph/Edge'
+
+export default class PolygonizeEdge extends Edge {
+  constructor () {
+    super()
+    this._line = arguments[0] || null
+  }
+  getLine () {
+    return this._line
+  }
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return PolygonizeEdge
+  }
 }
-inherits(PolygonizeEdge, Edge);
-extend(PolygonizeEdge.prototype, {
-	getLine: function () {
-		return this._line;
-	},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return PolygonizeEdge;
-	}
-});
