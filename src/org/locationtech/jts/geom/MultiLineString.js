@@ -1,5 +1,5 @@
 import Geometry from './Geometry'
-import BoundaryOp from '../operation/BoundaryOp'
+import { BoundaryOp } from '../operation/boundary'
 import Lineal from './Lineal'
 import GeometryCollection from './GeometryCollection'
 import Dimension from './Dimension'
