@@ -1,68 +1,66 @@
-import extend from '../../../../extend';
-export default function BoundaryNodeRule() {}
-extend(BoundaryNodeRule.prototype, {
-	isInBoundary: function (boundaryCount) {},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return BoundaryNodeRule;
-	}
-});
-function Mod2BoundaryNodeRule() {}
-extend(Mod2BoundaryNodeRule.prototype, {
-	isInBoundary: function (boundaryCount) {
-		return boundaryCount % 2 === 1;
-	},
-	interfaces_: function () {
-		return [BoundaryNodeRule];
-	},
-	getClass: function () {
-		return Mod2BoundaryNodeRule;
-	}
-});
-function EndPointBoundaryNodeRule() {}
-extend(EndPointBoundaryNodeRule.prototype, {
-	isInBoundary: function (boundaryCount) {
-		return boundaryCount > 0;
-	},
-	interfaces_: function () {
-		return [BoundaryNodeRule];
-	},
-	getClass: function () {
-		return EndPointBoundaryNodeRule;
-	}
-});
-function MultiValentEndPointBoundaryNodeRule() {}
-extend(MultiValentEndPointBoundaryNodeRule.prototype, {
-	isInBoundary: function (boundaryCount) {
-		return boundaryCount > 1;
-	},
-	interfaces_: function () {
-		return [BoundaryNodeRule];
-	},
-	getClass: function () {
-		return MultiValentEndPointBoundaryNodeRule;
-	}
-});
-function MonoValentEndPointBoundaryNodeRule() {}
-extend(MonoValentEndPointBoundaryNodeRule.prototype, {
-	isInBoundary: function (boundaryCount) {
-		return boundaryCount === 1;
-	},
-	interfaces_: function () {
-		return [BoundaryNodeRule];
-	},
-	getClass: function () {
-		return MonoValentEndPointBoundaryNodeRule;
-	}
-});
-BoundaryNodeRule.Mod2BoundaryNodeRule = Mod2BoundaryNodeRule;
-BoundaryNodeRule.EndPointBoundaryNodeRule = EndPointBoundaryNodeRule;
-BoundaryNodeRule.MultiValentEndPointBoundaryNodeRule = MultiValentEndPointBoundaryNodeRule;
-BoundaryNodeRule.MonoValentEndPointBoundaryNodeRule = MonoValentEndPointBoundaryNodeRule;
-BoundaryNodeRule.MOD2_BOUNDARY_RULE = new Mod2BoundaryNodeRule();
-BoundaryNodeRule.ENDPOINT_BOUNDARY_RULE = new EndPointBoundaryNodeRule();
-BoundaryNodeRule.MULTIVALENT_ENDPOINT_BOUNDARY_RULE = new MultiValentEndPointBoundaryNodeRule();
-BoundaryNodeRule.MONOVALENT_ENDPOINT_BOUNDARY_RULE = new MonoValentEndPointBoundaryNodeRule();
-BoundaryNodeRule.OGC_SFS_BOUNDARY_RULE = BoundaryNodeRule.MOD2_BOUNDARY_RULE;
+export default class BoundaryNodeRule {
+  isInBoundary (boundaryCount) {}
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return BoundaryNodeRule
+  }
+  static get Mod2BoundaryNodeRule () { return Mod2BoundaryNodeRule }
+  static get EndPointBoundaryNodeRule () { return EndPointBoundaryNodeRule }
+  static get MultiValentEndPointBoundaryNodeRule () { return MultiValentEndPointBoundaryNodeRule }
+  static get MonoValentEndPointBoundaryNodeRule () { return MonoValentEndPointBoundaryNodeRule }
+  static get MOD2_BOUNDARY_RULE () { return new Mod2BoundaryNodeRule() }
+  static get ENDPOINT_BOUNDARY_RULE () { return new EndPointBoundaryNodeRule() }
+  static get MULTIVALENT_ENDPOINT_BOUNDARY_RULE () { return new MultiValentEndPointBoundaryNodeRule() }
+  static get MONOVALENT_ENDPOINT_BOUNDARY_RULE () { return new MonoValentEndPointBoundaryNodeRule() }
+  static get OGC_SFS_BOUNDARY_RULE () { return BoundaryNodeRule.MOD2_BOUNDARY_RULE }
+}
+
+class Mod2BoundaryNodeRule {
+  isInBoundary (boundaryCount) {
+    return boundaryCount % 2 === 1
+  }
+  interfaces_ () {
+    return [BoundaryNodeRule]
+  }
+  getClass () {
+    return Mod2BoundaryNodeRule
+  }
+}
+
+class EndPointBoundaryNodeRule {
+  isInBoundary (boundaryCount) {
+    return boundaryCount > 0
+  }
+  interfaces_ () {
+    return [BoundaryNodeRule]
+  }
+  getClass () {
+    return EndPointBoundaryNodeRule
+  }
+}
+
+class MultiValentEndPointBoundaryNodeRule {
+  isInBoundary (boundaryCount) {
+    return boundaryCount > 1
+  }
+  interfaces_ () {
+    return [BoundaryNodeRule]
+  }
+  getClass () {
+    return MultiValentEndPointBoundaryNodeRule
+  }
+}
+
+class MonoValentEndPointBoundaryNodeRule {
+  isInBoundary (boundaryCount) {
+    return boundaryCount === 1
+  }
+  interfaces_ () {
+    return [BoundaryNodeRule]
+  }
+  getClass () {
+    return MonoValentEndPointBoundaryNodeRule
+  }
+}
