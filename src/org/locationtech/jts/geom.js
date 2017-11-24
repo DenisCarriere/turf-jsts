@@ -1,3 +1,4 @@
+// geom
 export { default as Coordinate } from './geom/Coordinate'
 export { default as CoordinateList } from './geom/CoordinateList'
 export { default as Envelope } from './geom/Envelope'
