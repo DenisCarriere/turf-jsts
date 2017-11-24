@@ -1,4 +1,4 @@
-// polygonize
+// operation.polygonize
 export { default as EdgeRing } from './polygonize/EdgeRing'
 export { default as PolygonizeDirectedEdge } from './polygonize/PolygonizeDirectedEdge'
 export { default as PolygonizeEdge } from './polygonize/PolygonizeEdge'

@@ -1,4 +1,4 @@
-// relate
+// operation.relate
 export { default as EdgeEndBuilder } from './relate/EdgeEndBuilder'
 export { default as EdgeEndBundle } from './relate/EdgeEndBundle'
 export { default as EdgeEndBundleStar } from './relate/EdgeEndBundleStar'

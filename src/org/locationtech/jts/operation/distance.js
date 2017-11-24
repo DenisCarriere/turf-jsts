@@ -1,4 +1,4 @@
-// distance
+// operation.distance
 export { default as ConnectedElementLocationFilter } from './distance/ConnectedElementLocationFilter'
 export { default as ConnectedElementPointFilter } from './distance/ConnectedElementPointFilter'
 export { default as DistanceOp } from './distance/DistanceOp'

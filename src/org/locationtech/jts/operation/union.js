@@ -1,4 +1,4 @@
-// union
+// operation.union
 export { default as CascadedPolygonUnion } from './union/CascadedPolygonUnion'
 export { default as PointGeometryUnion } from './union/PointGeometryUnion'
 export { default as UnaryUnionOp } from './union/UnaryUnionOp'

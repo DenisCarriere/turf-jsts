@@ -1,4 +1,4 @@
-// valid
+// operation.valid
 export { default as ConnectedInteriorTester } from './valid/ConnectedInteriorTester'
 export { default as ConsistentAreaTester } from './valid/ConsistentAreaTester'
 export { default as IndexedNestedRingTester } from './valid/IndexedNestedRingTester'

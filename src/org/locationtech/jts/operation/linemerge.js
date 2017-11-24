@@ -1,4 +1,4 @@
-// linemerge
+// operation.linemerge
 export { default as EdgeString } from './linemerge/EdgeString'
 export { default as LineMergeDirectedEdge } from './linemerge/LineMergeDirectedEdge'
 export { default as LineMergeEdge } from './linemerge/LineMergeEdge'
