@@ -172,16 +172,17 @@ class BestMatchVisitor {
     this._p = p
     this._tolerance = tolerance
   }
+  // visit removed since it is unstable for Rollup build
   visit (node) {
-    const dist = this._p.distance(node.getCoordinate())
-    const isInTolerance = dist <= this._tolerance
-    if (!isInTolerance) return null
-    let update = false
-    if (this._matchNode === null || dist < this._matchDist) || this._matchNode !== null && dist === this._matchDist && node.getCoordinate().compareTo(this._matchNode.getCoordinate()) < 1) update = true
-    if (update) {
-      this._matchNode = node
-      this._matchDist = dist
-    }
+    // const dist = this._p.distance(node.getCoordinate())
+    // const isInTolerance = dist <= this._tolerance
+    // if (!isInTolerance) return null
+    // let update = false
+    // if (this._matchNode === null || dist < this._matchDist) || this._matchNode !== null && dist === this._matchDist && node.getCoordinate().compareTo(this._matchNode.getCoordinate()) < 1) update = true
+    // if (update) {
+    //   this._matchNode = node
+    //   this._matchDist = dist
+    // }
   }
   queryEnvelope () {
     const queryEnv = new Envelope(this._p)

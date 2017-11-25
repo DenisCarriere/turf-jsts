@@ -2,8 +2,9 @@
   "name": "turf-jsts",
   "description": "A JavaScript library of spatial predicates and functions for processing geometry",
   "version": "0.0.1",
-  "main": "main.js",
-  "module": "index.js",
+  "main": "main",
+  "module": "index",
+  "jsnext:main": "index",
   "files": [
     "index.js",
     "main.js",
@@ -58,6 +59,7 @@
     ]
   },
   "scripts": {
+    "prepublish": "rollup -f cjs -o main.js index.js",
     "test-manual": "NODE_PATH=src mocha --timeout 10s --compilers js:babel-register --recursive test/manual",
     "test": "NODE_PATH=src mocha --timeout 10s --compilers js:babel-register --recursive test/auto/node test/manual",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
