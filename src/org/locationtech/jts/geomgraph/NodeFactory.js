@@ -1,14 +1,13 @@
-import Node from './Node';
-import extend from '../../../../extend';
-export default function NodeFactory() {}
-extend(NodeFactory.prototype, {
-	createNode: function (coord) {
-		return new Node(coord, null);
-	},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return NodeFactory;
-	}
-});
+import Node from './Node'
+
+export default class NodeFactory {
+  createNode (coord) {
+    return new Node(coord, null)
+  }
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return NodeFactory
+  }
+}
