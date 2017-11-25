@@ -1,9 +1,10 @@
-export default function DoubleBits () { }
-DoubleBits.exponent = function (d) {
-  return CVTFWD(64, d) - 1023
-}
-DoubleBits.powerOf2 = function (exp) {
-  return Math.pow(2, exp)
+export default class DoubleBits {
+  static exponent (d) {
+    return CVTFWD(64, d) - 1023
+  }
+  static powerOf2 (exp) {
+    return Math.pow(2, exp)
+  }
 }
 
 /**
@@ -17,11 +18,11 @@ DoubleBits.powerOf2 = function (exp) {
  * @return {Number} The integer value of the exponent.
  */
 function CVTFWD (NumW, Qty) {
-  var Sign
-  var Expo
-  var Mant
-  var Bin
-  var Inf = {
+  let Sign
+  let Expo
+  let Mant
+  let Bin
+  const Inf = {
     32: {
       d: 0x7F,
       c: 0x80,
@@ -35,7 +36,7 @@ function CVTFWD (NumW, Qty) {
       a: 0
     }
   }
-  var ExW = {
+  const ExW = {
     32: 8,
     64: 11
   }[NumW]
