@@ -1,5 +1,7 @@
 # JSTS used in TurfJS
 
+[![Build Status](https://travis-ci.org/DenisCarriere/turf-jsts.svg?branch=master)](https://travis-ci.org/DenisCarriere/turf-jsts)
+
 This version of JSTS is refactored to ES6 for the sole purpose of importing it to [TurfJS](https://github.com/Turfjs/turf).
 
 More information about the original library: https://github.com/bjornharrtell/jsts
