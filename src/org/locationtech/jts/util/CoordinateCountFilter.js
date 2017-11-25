@@ -1,19 +1,19 @@
-import CoordinateFilter from '../geom/CoordinateFilter';
-import extend from '../../../../extend';
-export default function CoordinateCountFilter() {
-	this._n = 0;
+import CoordinateFilter from '../geom/CoordinateFilter'
+
+export default class CoordinateCountFilter {
+  constructor () {
+    this._n = 0
+  }
+  filter (coord) {
+    this._n++
+  }
+  getCount () {
+    return this._n
+  }
+  interfaces_ () {
+    return [CoordinateFilter]
+  }
+  getClass () {
+    return CoordinateCountFilter
+  }
 }
-extend(CoordinateCountFilter.prototype, {
-	filter: function (coord) {
-		this._n++;
-	},
-	getCount: function () {
-		return this._n;
-	},
-	interfaces_: function () {
-		return [CoordinateFilter];
-	},
-	getClass: function () {
-		return CoordinateCountFilter;
-	}
-});
