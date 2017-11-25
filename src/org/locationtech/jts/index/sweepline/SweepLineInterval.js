@@ -1,32 +1,34 @@
-import extend from '../../../../../extend';
-export default function SweepLineInterval() {
-	this._min = null;
-	this._max = null;
-	this._item = null;
-	if (arguments.length === 2) {
-		let min = arguments[0], max = arguments[1];
-		SweepLineInterval.call(this, min, max, null);
-	} else if (arguments.length === 3) {
-		let min = arguments[0], max = arguments[1], item = arguments[2];
-		this._min = min < max ? min : max;
-		this._max = max > min ? max : min;
-		this._item = item;
-	}
+export default class SweepLineInterval {
+  constructor () {
+    this._min = null
+    this._max = null
+    this._item = null
+    if (arguments.length === 2) {
+      const min = arguments[0]
+      const max = arguments[1]
+      SweepLineInterval.call(this, min, max, null)
+    } else if (arguments.length === 3) {
+      const min = arguments[0]
+      const max = arguments[1]
+      const item = arguments[2]
+      this._min = min < max ? min : max
+      this._max = max > min ? max : min
+      this._item = item
+    }
+  }
+  getMin () {
+    return this._min
+  }
+  getItem () {
+    return this._item
+  }
+  getMax () {
+    return this._max
+  }
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return SweepLineInterval
+  }
 }
-extend(SweepLineInterval.prototype, {
-	getMin: function () {
-		return this._min;
-	},
-	getItem: function () {
-		return this._item;
-	},
-	getMax: function () {
-		return this._max;
-	},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return SweepLineInterval;
-	}
-});
