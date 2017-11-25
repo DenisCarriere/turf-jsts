@@ -1,46 +1,46 @@
-import Interval from './Interval';
-import extend from '../../../../../extend';
-import DoubleBits from '../quadtree/DoubleBits';
-export default function Key() {
-	this._pt = 0.0;
-	this._level = 0;
-	this._interval = null;
-	let interval = arguments[0];
-	this.computeKey(interval);
+import Interval from './Interval'
+import DoubleBits from '../quadtree/DoubleBits'
+
+export default class Key {
+  constructor () {
+    this._pt = 0.0
+    this._level = 0
+    this._interval = null
+    const interval = arguments[0]
+    this.computeKey(interval)
+  }
+  getInterval () {
+    return this._interval
+  }
+  getLevel () {
+    return this._level
+  }
+  computeKey (itemInterval) {
+    this._level = Key.computeLevel(itemInterval)
+    this._interval = new Interval()
+    this.computeInterval(this._level, itemInterval)
+    while (!this._interval.contains(itemInterval)) {
+      this._level += 1
+      this.computeInterval(this._level, itemInterval)
+    }
+  }
+  computeInterval (level, itemInterval) {
+    const size = DoubleBits.powerOf2(level)
+    this._pt = Math.floor(itemInterval.getMin() / size) * size
+    this._interval.init(this._pt, this._pt + size)
+  }
+  getPoint () {
+    return this._pt
+  }
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return Key
+  }
+  static computeLevel (interval) {
+    const dx = interval.getWidth()
+    const level = DoubleBits.exponent(dx) + 1
+    return level
+  }
 }
-extend(Key.prototype, {
-	getInterval: function () {
-		return this._interval;
-	},
-	getLevel: function () {
-		return this._level;
-	},
-	computeKey: function (itemInterval) {
-		this._level = Key.computeLevel(itemInterval);
-		this._interval = new Interval();
-		this.computeInterval(this._level, itemInterval);
-		while (!this._interval.contains(itemInterval)) {
-			this._level += 1;
-			this.computeInterval(this._level, itemInterval);
-		}
-	},
-	computeInterval: function (level, itemInterval) {
-		var size = DoubleBits.powerOf2(level);
-		this._pt = Math.floor(itemInterval.getMin() / size) * size;
-		this._interval.init(this._pt, this._pt + size);
-	},
-	getPoint: function () {
-		return this._pt;
-	},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return Key;
-	}
-});
-Key.computeLevel = function (interval) {
-	var dx = interval.getWidth();
-	var level = DoubleBits.exponent(dx) + 1;
-	return level;
-};
