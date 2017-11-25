@@ -1,4 +1,5 @@
-// dissolve
-export { default as DissolveEdgeGraph } from './dissolve/DissolveEdgeGraph'
-export { default as DissolveHalfEdge } from './dissolve/DissolveHalfEdge'
-export { default as LineDissolver } from './dissolve/LineDissolver'
+// edgegraph
+export { default as EdgeGraph } from './edgegraph/EdgeGraph'
+export { default as EdgeGraphBuilder } from './edgegraph/EdgeGraphBuilder'
+export { default as HalfEdge } from './edgegraph/HalfEdge'
+export { default as MarkHalfEdge } from './edgegraph/MarkHalfEdge'
