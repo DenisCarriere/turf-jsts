@@ -1,10 +1,8 @@
 import STRtree from '../index/strtree/STRtree'
 import NodedSegmentString from './NodedSegmentString'
 import MonotoneChainOverlapAction from '../index/chain/MonotoneChainOverlapAction'
-import extend from '../../../../extend'
 import MonotoneChainBuilder from '../index/chain/MonotoneChainBuilder'
 import ArrayList from '../../../../java/util/ArrayList'
-import inherits from '../../../../inherits'
 import SinglePassNoder from './SinglePassNoder'
 
 export default class MCIndexNoder extends SinglePassNoder {
