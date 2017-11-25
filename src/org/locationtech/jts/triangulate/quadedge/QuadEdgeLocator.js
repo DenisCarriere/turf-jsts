@@ -1,11 +1,9 @@
-import extend from '../../../../../extend';
-export default function QuadEdgeLocator() {}
-extend(QuadEdgeLocator.prototype, {
-	locate: function (v) {},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return QuadEdgeLocator;
-	}
-});
+export default class QuadEdgeLocator {
+  locate (v) {}
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return QuadEdgeLocator
+  }
+}

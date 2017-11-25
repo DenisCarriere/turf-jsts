@@ -1,11 +1,9 @@
-import extend from '../../../../../extend';
-export default function TraversalVisitor() {}
-extend(TraversalVisitor.prototype, {
-	visit: function (currTri, edgeIndex, neighbTri) {},
-	interfaces_: function () {
-		return [];
-	},
-	getClass: function () {
-		return TraversalVisitor;
-	}
-});
+export default class TraversalVisitor {
+  visit (currTri, edgeIndex, neighbTri) {}
+  interfaces_ () {
+    return []
+  }
+  getClass () {
+    return TraversalVisitor
+  }
+}

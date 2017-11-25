@@ -1,32 +1,32 @@
-import extend from '../../../../../extend';
-import QuadEdgeLocator from './QuadEdgeLocator';
-export default function LastFoundQuadEdgeLocator() {
-	this._subdiv = null;
-	this._lastEdge = null;
-	let subdiv = arguments[0];
-	this._subdiv = subdiv;
-	this.init();
+import QuadEdgeLocator from './QuadEdgeLocator'
+
+export default class LastFoundQuadEdgeLocator {
+  constructor () {
+    this._subdiv = null
+    this._lastEdge = null
+    const subdiv = arguments[0]
+    this._subdiv = subdiv
+    this.init()
+  }
+  init () {
+    this._lastEdge = this.findEdge()
+  }
+  locate (v) {
+    if (!this._lastEdge.isLive()) {
+      this.init()
+    }
+    const e = this._subdiv.locateFromEdge(v, this._lastEdge)
+    this._lastEdge = e
+    return e
+  }
+  findEdge () {
+    const edges = this._subdiv.getEdges()
+    return edges.iterator().next()
+  }
+  interfaces_ () {
+    return [QuadEdgeLocator]
+  }
+  getClass () {
+    return LastFoundQuadEdgeLocator
+  }
 }
-extend(LastFoundQuadEdgeLocator.prototype, {
-	init: function () {
-		this._lastEdge = this.findEdge();
-	},
-	locate: function (v) {
-		if (!this._lastEdge.isLive()) {
-			this.init();
-		}
-		var e = this._subdiv.locateFromEdge(v, this._lastEdge);
-		this._lastEdge = e;
-		return e;
-	},
-	findEdge: function () {
-		var edges = this._subdiv.getEdges();
-		return edges.iterator().next();
-	},
-	interfaces_: function () {
-		return [QuadEdgeLocator];
-	},
-	getClass: function () {
-		return LastFoundQuadEdgeLocator;
-	}
-});
