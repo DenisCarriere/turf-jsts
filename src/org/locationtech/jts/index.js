@@ -1,2 +1,2 @@
-export * from './index/quadtree'
-export * from './index/strtree'
+// export * from './index/quadtree'
+// export * from './index/strtree'

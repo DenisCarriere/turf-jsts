@@ -1,3 +1,4 @@
+// io
 export { default as GeoJSONParser } from './io/GeoJSONParser'
 export { default as GeoJSONReader } from './io/GeoJSONReader'
 export { default as GeoJSONWriter } from './io/GeoJSONWriter'

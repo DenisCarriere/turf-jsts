@@ -1,15 +1,11 @@
-import LengthIndexedLine from './linearref/LengthIndexedLine'
-import LengthLocationMap from './linearref/LengthLocationMap'
-import LinearGeometryBuilder from './linearref/LinearGeometryBuilder'
-import LinearIterator from './linearref/LinearIterator'
-import LinearLocation from './linearref/LinearLocation'
-import LocationIndexedLine from './linearref/LocationIndexedLine'
-
-export {
-  LengthIndexedLine,
-  LengthLocationMap,
-  LinearGeometryBuilder,
-  LinearIterator,
-  LinearLocation,
-  LocationIndexedLine
-}
+// linearref
+export { default as ExtractLineByLocation } from './linearref/ExtractLineByLocation'
+export { default as LengthIndexOfPoint } from './linearref/LengthIndexOfPoint'
+export { default as LengthIndexedLine } from './linearref/LengthIndexedLine'
+export { default as LengthLocationMap } from './linearref/LengthLocationMap'
+export { default as LinearGeometryBuilder } from './linearref/LinearGeometryBuilder'
+export { default as LinearIterator } from './linearref/LinearIterator'
+export { default as LinearLocation } from './linearref/LinearLocation'
+export { default as LocationIndexOfLine } from './linearref/LocationIndexOfLine'
+export { default as LocationIndexOfPoint } from './linearref/LocationIndexOfPoint'
+export { default as LocationIndexedLine } from './linearref/LocationIndexedLine'
