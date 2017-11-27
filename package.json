@@ -60,8 +60,11 @@
   },
   "scripts": {
     "prepublish": "rollup -c rollup.config.js",
-    "test-manual": "NODE_PATH=src mocha --timeout 10s --compilers js:babel-register --recursive test/manual",
-    "test": "NODE_PATH=src mocha --timeout 10s --compilers js:babel-register --recursive test/auto/node test/manual",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+    "test": "NODE_PATH=src mocha -r @std/esm --recursive test/auto/node test/manual",
+    "test-manual": "NODE_PATH=src mocha -r @std/esm test/manual"
+  },
+  "@std/esm": {
+    "esm": "js",
+    "cjs": true
   }
 }
