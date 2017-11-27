@@ -10,20 +10,12 @@ import IsSimpleOp from './operation/issimple/IsSimpleOp'
 import BufferOp from './operation/buffer/BufferOp'
 import ConvexHull from './algorithm/ConvexHull'
 import Centroid from './algorithm/Centroid'
-import Comparable from '../../../java/lang/Comparable'
 import RelateOp from './operation/relate/RelateOp'
 import InteriorPointPoint from './algorithm/InteriorPointPoint'
-import Cloneable from '../../../java/lang/Cloneable'
-import Serializable from '../../../java/io/Serializable'
 import DistanceOp from './operation/distance/DistanceOp'
-import Envelope from './geom/Envelope'
-import RectangleContains from './operation/predicate/RectangleContains'
-import Assert from './util/Assert'
-import RectangleIntersects from './operation/predicate/RectangleIntersects'
 import OverlayOp from './operation/overlay/OverlayOp'
-
 import Geometry from './geom/Geometry'
-import GeometryCollection from './geom/GeometryCollection'
+import GeometryMapper from './geom/util/GeometryMapper'
 
 import extend from '../../../extend'
 
@@ -36,7 +28,7 @@ extend(Geometry.prototype, {
     if (arguments.length === 0) {
       return UnaryUnionOp.union(this)
     } else if (arguments.length === 1) {
-      let other = arguments[0]
+      const other = arguments[0]
       return UnionOp.union(this, other)
     }
   },
@@ -46,10 +38,10 @@ extend(Geometry.prototype, {
   intersection: function (other) {
     if (this.isEmpty() || other.isEmpty()) return OverlayOp.createEmptyResult(OverlayOp.INTERSECTION, this, other, this.factory)
     if (this.isGeometryCollection()) {
-      var g2 = other
+      const g2 = other
       return GeometryCollectionMapper.map(this, {
         interfaces_: function () {
-          return [MapOp]
+          return [GeometryMapper.MapOp]
         },
         map: function (g) {
           return g.intersection(g2)
@@ -86,13 +78,16 @@ extend(Geometry.prototype, {
   },
   buffer: function () {
     if (arguments.length === 1) {
-      let distance = arguments[0]
+      const distance = arguments[0]
       return BufferOp.bufferOp(this, distance)
     } else if (arguments.length === 2) {
-      let distance = arguments[0], quadrantSegments = arguments[1]
+      const distance = arguments[0]
+      const quadrantSegments = arguments[1]
       return BufferOp.bufferOp(this, distance, quadrantSegments)
     } else if (arguments.length === 3) {
-      let distance = arguments[0], quadrantSegments = arguments[1], endCapStyle = arguments[2]
+      const distance = arguments[0]
+      const quadrantSegments = arguments[1]
+      const endCapStyle = arguments[2]
       return BufferOp.bufferOp(this, distance, quadrantSegments, endCapStyle)
     }
   },
@@ -104,21 +99,21 @@ extend(Geometry.prototype, {
   },
   getCentroid: function () {
     if (this.isEmpty()) return this._factory.createPoint()
-    var centPt = Centroid.getCentroid(this)
+    const centPt = Centroid.getCentroid(this)
     return this.createPointFromInternalCoord(centPt, this)
   },
   getInteriorPoint: function () {
     if (this.isEmpty()) return this._factory.createPoint()
-    var interiorPt = null
-    var dim = this.getDimension()
+    let interiorPt = null
+    const dim = this.getDimension()
     if (dim === 0) {
-      var intPt = new InteriorPointPoint(this)
+      const intPt = new InteriorPointPoint(this)
       interiorPt = intPt.getInteriorPoint()
     } else if (dim === 1) {
-      var intPt = new InteriorPointLine(this)
+      const intPt = new InteriorPointLine(this)
       interiorPt = intPt.getInteriorPoint()
     } else {
-      var intPt = new InteriorPointArea(this)
+      const intPt = new InteriorPointArea(this)
       interiorPt = intPt.getInteriorPoint()
     }
     return this.createPointFromInternalCoord(interiorPt, this)
@@ -138,7 +133,7 @@ extend(Geometry.prototype, {
     return exemplar.getFactory().createPoint(coord)
   },
   toText: function () {
-    var writer = new WKTWriter()
+    const writer = new WKTWriter()
     return writer.write(this)
   },
   toString: function () {
@@ -155,11 +150,11 @@ extend(Geometry.prototype, {
     return SnapIfNeededOverlayOp.overlayOp(this, other, OverlayOp.DIFFERENCE)
   },
   isSimple: function () {
-    var op = new IsSimpleOp(this)
+    const op = new IsSimpleOp(this)
     return op.isSimple()
   },
   isWithinDistance: function (geom, distance) {
-    var envDist = this.getEnvelopeInternal().distance(geom.getEnvelopeInternal())
+    const envDist = this.getEnvelopeInternal().distance(geom.getEnvelopeInternal())
     if (envDist > distance) return false
     return DistanceOp.isWithinDistance(this, geom, distance)
   },
