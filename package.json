@@ -59,7 +59,7 @@
     ]
   },
   "scripts": {
-    "prepublish": "rollup -f cjs -o main.js index.js",
+    "prepublish": "rollup -c rollup.config.js",
     "test-manual": "NODE_PATH=src mocha --timeout 10s --compilers js:babel-register --recursive test/manual",
     "test": "NODE_PATH=src mocha --timeout 10s --compilers js:babel-register --recursive test/auto/node test/manual",
     "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov"

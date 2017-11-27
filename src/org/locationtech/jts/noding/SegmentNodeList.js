@@ -55,7 +55,7 @@ export default class SegmentNodeList {
     }
   }
   addEdgeCoordinates (ei0, ei1, coordList) {
-    const npts = ei1.segmentIndex - ei0.segmentIndex + 2
+    let npts = ei1.segmentIndex - ei0.segmentIndex + 2
     const lastSegStartPt = this._edge.getCoordinate(ei1.segmentIndex)
     const useIntPt1 = ei1.isInterior() || !ei1.coord.equals2D(lastSegStartPt)
     if (!useIntPt1) {
