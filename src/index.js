@@ -7,5 +7,5 @@
  * UnionOp => @turf/union
  * BufferOp => @turf/buffer
  */
-export { GeoJSONReader, GeoJSONWriter } from './src/org/locationtech/jts/io'
-export { OverlayOp, UnionOp, BufferOp } from './src/org/locationtech/jts/operation'
+export { GeoJSONReader, GeoJSONWriter } from './org/locationtech/jts/io'
+export { OverlayOp, UnionOp, BufferOp } from './org/locationtech/jts/operation'

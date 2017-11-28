@@ -3,11 +3,13 @@
   "description": "A JavaScript library of spatial predicates and functions for processing geometry",
   "version": "1.0.1",
   "main": "jsts.js",
-  "module": "index",
-  "jsnext:main": "index",
+  "module": "jsts.mjs",
+  "jsnext:main": "jsts.mjs",
+  "unpkg": "jsts.min.js",
+  "jsdelivr": "jsts.min.js",
   "files": [
-    "index.js",
     "jsts.js",
+    "jsts.mjs",
     "jsts.min.js",
     "src"
   ],
@@ -61,7 +63,8 @@
   "scripts": {
     "prepublish": "rollup -c rollup.config.js",
     "test": "NODE_PATH=src mocha -r @std/esm --recursive test/auto/node test/manual",
-    "test-manual": "NODE_PATH=src mocha -r @std/esm test/manual"
+    "test-manual": "NODE_PATH=src mocha -r @std/esm test/manual",
+    "create-react-app": "react-scripts build"
   },
   "@std/esm": {
     "esm": "js",

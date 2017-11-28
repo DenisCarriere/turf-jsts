@@ -6,10 +6,12 @@ yarn-debug.log*
 yarn-error.log*
 
 .esm-cache
+jsts.mjs
 jsts.js
 jsts.min.js
 main.js
 
+build
 # Runtime data
 pids
 *.pid

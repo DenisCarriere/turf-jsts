@@ -5,7 +5,7 @@ import Comparable from '../../../../java/lang/Comparable'
 import Cloneable from '../../../../java/lang/Cloneable'
 import Comparator from '../../../../java/util/Comparator'
 import Serializable from '../../../../java/io/Serializable'
-import Assert from '../util/Assert'
+// import Assert from '../util/Assert'
 
 export default class Coordinate {
   constructor () {
@@ -103,15 +103,15 @@ export default class Coordinate {
     return 0
   }
   clone () {
-    try {
-      var coord = null
-      return coord
-    } catch (e) {
-      if (e instanceof CloneNotSupportedException) {
-        Assert.shouldNeverReachHere("this shouldn't happen because this class is Cloneable")
-        return null
-      } else throw e
-    } finally {}
+    // try {
+    //   var coord = null
+    //   return coord
+    // } catch (e) {
+    //   if (e instanceof CloneNotSupportedException) {
+    //     Assert.shouldNeverReachHere("this shouldn't happen because this class is Cloneable")
+    //     return null
+    //   } else throw e
+    // } finally {}
   }
   copy () {
     return new Coordinate(this)
