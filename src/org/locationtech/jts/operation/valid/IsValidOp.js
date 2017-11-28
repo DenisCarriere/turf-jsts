@@ -239,7 +239,7 @@ export default class IsValidOp {
       else if (g instanceof Polygon) this.checkValid(g)
       else if (g instanceof MultiPolygon) this.checkValid(g)
       else if (g instanceof GeometryCollection) this.checkValid(g)
-      else throw new UnsupportedOperationException(g.getClass().getName())
+      else throw new Error(g.getClass().getName())
     }
   }
   setSelfTouchingRingFormingHoleValid (isValid) {

@@ -30,7 +30,7 @@ export default class CommonBits {
     if (arguments.length === 1) {
       let bits = arguments[0]
       const x = Double.longBitsToDouble(bits)
-      const numStr = Long.toBinaryString(bits)
+      const numStr = Double.toBinaryString(bits)
       const padStr = '0000000000000000000000000000000000000000000000000000000000000000' + numStr
       const bitStr = padStr.substring(padStr.length - 64)
       const str = bitStr.substring(0, 1) + '  ' + bitStr.substring(1, 12) + '(exp) ' + bitStr.substring(12) + ' [ ' + x + ' ]'

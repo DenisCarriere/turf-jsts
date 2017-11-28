@@ -11,7 +11,7 @@ export default class AxisPlaneCoordinateSequence {
     this._indexMap = indexMap
   }
   setOrdinate (index, ordinateIndex, value) {
-    throw new UnsupportedOperationException()
+    throw new Error()
   }
   getZ (index) {
     return this.getOrdinate(index, CoordinateSequence.Z)
@@ -45,19 +45,19 @@ export default class AxisPlaneCoordinateSequence {
     return this.getOrdinate(index, CoordinateSequence.X)
   }
   clone () {
-    throw new UnsupportedOperationException()
+    throw new Error()
   }
   expandEnvelope (env) {
-    throw new UnsupportedOperationException()
+    throw new Error()
   }
   copy () {
-    throw new UnsupportedOperationException()
+    throw new Error()
   }
   getY (index) {
     return this.getOrdinate(index, CoordinateSequence.Y)
   }
   toCoordinateArray () {
-    throw new UnsupportedOperationException()
+    throw new Error()
   }
   interfaces_ () {
     return [CoordinateSequence]

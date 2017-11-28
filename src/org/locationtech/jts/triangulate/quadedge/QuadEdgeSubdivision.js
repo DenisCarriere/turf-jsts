@@ -1,7 +1,7 @@
 import QuadEdge from './QuadEdge'
 import CoordinateList from '../../geom/CoordinateList'
 import HashSet from '../../../../../java/util/HashSet'
-import WKTWriter from '../../io/WKTWriter'
+// import WKTWriter from '../../io/WKTWriter'
 import GeometryFactory from '../../geom/GeometryFactory'
 import Coordinate from '../../geom/Coordinate'
 import IllegalArgumentException from '../../../../../java/lang/IllegalArgumentException'
@@ -424,10 +424,10 @@ class TriangleCoordinatesVisitor {
     this._triCoords = new ArrayList()
   }
   checkTriangleSize (pts) {
-    let loc = ''
-    if (pts.length >= 2) loc = WKTWriter.toLineString(pts[0], pts[1]); else {
-      if (pts.length >= 1) loc = WKTWriter.toPoint(pts[0])
-    }
+    // let loc = ''
+    // if (pts.length >= 2) loc = WKTWriter.toLineString(pts[0], pts[1]); else {
+    //   if (pts.length >= 1) loc = WKTWriter.toPoint(pts[0])
+    // }
   }
   visit (triEdges) {
     this._coordList.clear()

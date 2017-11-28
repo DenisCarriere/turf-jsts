@@ -1,7 +1,6 @@
 import hasInterface from '../../../../hasInterface'
 import Collection from '../../../../java/util/Collection'
 import OrientedCoordinateArray from './OrientedCoordinateArray'
-import extend from '../../../../extend'
 import SegmentString from './SegmentString'
 import CoordinateArrays from '../geom/CoordinateArrays'
 import TreeMap from '../../../../java/util/TreeMap'

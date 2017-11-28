@@ -31,6 +31,7 @@ export default class ConsistentPolygonRingChecker {
           if (!this.isPotentialResultAreaEdge(nextOut, opCode)) continue
           state = this._SCANNING_FOR_INCOMING
           break
+        default:
       }
     }
     if (state === this._LINKING_TO_OUTGOING) {

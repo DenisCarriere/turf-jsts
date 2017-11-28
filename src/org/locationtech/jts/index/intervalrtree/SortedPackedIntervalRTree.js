@@ -27,7 +27,7 @@ export default class SortedPackedIntervalRTree {
     }
   }
   insert (min, max, item) {
-    if (this._root !== null) throw new IllegalStateException('Index cannot be added to once it has been queried')
+    if (this._root !== null) throw new Error('Index cannot be added to once it has been queried')
     this._leaves.add(new IntervalRTreeLeafNode(min, max, item))
   }
   query (min, max, visitor) {

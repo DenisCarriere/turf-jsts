@@ -459,7 +459,7 @@ export default class DD {
     var digits = this.extractSignificantDigits(false, magnitude)
     var expStr = DD.SCI_NOT_EXPONENT_CHAR + magnitude[0]
     if (digits.charAt(0) === '0') {
-      throw new IllegalStateException('Found leading zero: ' + digits)
+      throw new Error('Found leading zero: ' + digits)
     }
     var trailingDigits = ''
     if (digits.length > 1) trailingDigits = digits.substring(1)
@@ -579,13 +579,13 @@ export default class DD {
         try {
           exp = Integer.parseInt(expStr)
         } catch (ex) {
-          if (ex instanceof NumberFormatException) {
-            throw new NumberFormatException('Invalid exponent ' + expStr + ' in string ' + str)
+          if (ex instanceof Error) {
+            throw new Error('Invalid exponent ' + expStr + ' in string ' + str)
           } else throw ex
         } finally {}
         break
       }
-      throw new NumberFormatException("Unexpected character '" + ch + "' at position " + i + ' in string ' + str)
+      throw new Error("Unexpected character '" + ch + "' at position " + i + ' in string ' + str)
     }
     let val2 = val
     const numDecPlaces = numDigits - numBeforeDec - exp

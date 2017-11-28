@@ -17,6 +17,7 @@ export default class Location {
         return 'i'
       case Location.NONE:
         return '-'
+      default:
     }
     throw new IllegalArgumentException('Unknown location value: ' + locationValue)
   }

@@ -27,10 +27,10 @@ export default class SweeplineNestedRingTester {
     return this._nestedPt
   }
   isNonNested () {
-    this.buildIndex()
-    const action = new OverlapAction()
-    this._sweepLine.computeOverlaps(action)
-    return action.isNonNested
+    // this.buildIndex()
+    // const action = new OverlapAction()
+    // this._sweepLine.computeOverlaps(action)
+    // return action.isNonNested
   }
   add (ring) {
     this._rings.add(ring)

@@ -2,11 +2,11 @@ import NoninvertibleTransformationException from './NoninvertibleTransformationE
 import hasInterface from '../../../../../hasInterface'
 import Coordinate from '../Coordinate'
 import IllegalArgumentException from '../../../../../java/lang/IllegalArgumentException'
-import Exception from '../../../../../java/lang/Exception'
+// import Exception from '../../../../../java/lang/Exception'
 import CoordinateSequence from '../CoordinateSequence'
 import Cloneable from '../../../../../java/lang/Cloneable'
 import CoordinateSequenceFilter from '../CoordinateSequenceFilter'
-import Assert from '../../util/Assert'
+// import Assert from '../../util/Assert'
 
 export default class AffineTransformation {
   constructor () {

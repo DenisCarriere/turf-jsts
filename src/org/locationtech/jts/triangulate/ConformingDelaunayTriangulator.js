@@ -130,7 +130,7 @@ export default class ConformingDelaunayTriangulator {
       if (encroachPt === null) continue
       this._splitPt = this._splitFinder.findSplitPoint(seg, encroachPt)
       const splitVertex = this.createVertex(this._splitPt, seg)
-      const insertedVertex = this.insertSite(splitVertex)
+      // const insertedVertex = this.insertSite(splitVertex)
       const s1 = new Segment(seg.getStartX(), seg.getStartY(), seg.getStartZ(), splitVertex.getX(), splitVertex.getY(), splitVertex.getZ(), seg.getData())
       const s2 = new Segment(splitVertex.getX(), splitVertex.getY(), splitVertex.getZ(), seg.getEndX(), seg.getEndY(), seg.getEndZ(), seg.getData())
       newSegments.add(s1)

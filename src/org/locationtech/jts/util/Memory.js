@@ -6,8 +6,8 @@ export default class Memory {
     return Memory
   }
   static used () {
-    var runtime = Runtime.getRuntime()
-    return runtime.totalMemory() - runtime.freeMemory()
+    // var runtime = Runtime.getRuntime()
+    // return runtime.totalMemory() - runtime.freeMemory()
   }
   static format (mem) {
     if (mem < 2 * Memory.KB) return mem + ' bytes'
@@ -19,8 +19,8 @@ export default class Memory {
     return Memory.format(Memory.free())
   }
   static total () {
-    var runtime = Runtime.getRuntime()
-    return runtime.totalMemory()
+    // var runtime = Runtime.getRuntime()
+    // return runtime.totalMemory()
   }
   static usedTotalString () {
     return 'Used: ' + Memory.usedString() + '   Total: ' + Memory.totalString()
@@ -38,8 +38,8 @@ export default class Memory {
     return Memory.format(Memory.total())
   }
   static free () {
-    var runtime = Runtime.getRuntime()
-    return runtime.freeMemory()
+    // var runtime = Runtime.getRuntime()
+    // return runtime.freeMemory()
   }
   static get KB () { return 1024 }
   static get MB () { return 1048576 }

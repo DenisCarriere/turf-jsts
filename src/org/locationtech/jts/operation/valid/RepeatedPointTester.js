@@ -21,7 +21,7 @@ export default class RepeatedPointTester {
       else if (g instanceof LineString) return this.hasRepeatedPoint(g.getCoordinates())
       else if (g instanceof Polygon) return this.hasRepeatedPoint(g)
       else if (g instanceof GeometryCollection) return this.hasRepeatedPoint(g)
-      else throw new UnsupportedOperationException(g.getClass().getName())
+      else throw new Error(g.getClass().getName())
     } else if (arguments[0] instanceof Array) {
       const coord = arguments[0]
       for (let i = 1; i < coord.length; i++) {

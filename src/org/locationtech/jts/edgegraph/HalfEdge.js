@@ -130,7 +130,7 @@ export default class HalfEdge {
     return HalfEdge
   }
   static init (e0, e1) {
-    if (e0._sym !== null || e1._sym !== null || e0._next !== null || e1._next !== null) throw new IllegalStateException('Edges are already initialized')
+    if (e0._sym !== null || e1._sym !== null || e0._next !== null || e1._next !== null) throw new Error('Edges are already initialized')
     e0.init(e1)
     return e0
   }

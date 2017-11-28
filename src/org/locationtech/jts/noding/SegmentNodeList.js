@@ -1,6 +1,6 @@
 import CoordinateList from '../geom/CoordinateList'
 import SegmentNode from './SegmentNode'
-import Iterator from '../../../../java/util/Iterator'
+// import Iterator from '../../../../java/util/Iterator'
 import Coordinate from '../geom/Coordinate'
 import NodedSegmentString from './NodedSegmentString'
 import Integer from '../../../../java/lang/Integer'
@@ -47,7 +47,7 @@ export default class SegmentNodeList {
   findCollapsesFromExistingVertices (collapsedVertexIndexes) {
     for (let i = 0; i < this._edge.size() - 2; i++) {
       const p0 = this._edge.getCoordinate(i)
-      const p1 = this._edge.getCoordinate(i + 1)
+      // const p1 = this._edge.getCoordinate(i + 1)
       const p2 = this._edge.getCoordinate(i + 2)
       if (p0.equals2D(p2)) {
         collapsedVertexIndexes.add(new Integer(i + 1))
@@ -55,13 +55,13 @@ export default class SegmentNodeList {
     }
   }
   addEdgeCoordinates (ei0, ei1, coordList) {
-    let npts = ei1.segmentIndex - ei0.segmentIndex + 2
+    // let npts = ei1.segmentIndex - ei0.segmentIndex + 2
     const lastSegStartPt = this._edge.getCoordinate(ei1.segmentIndex)
     const useIntPt1 = ei1.isInterior() || !ei1.coord.equals2D(lastSegStartPt)
-    if (!useIntPt1) {
-      npts--
-    }
-    const ipt = 0
+    // if (!useIntPt1) {
+    //   npts--
+    // }
+    // const ipt = 0
     coordList.add(new Coordinate(ei0.coord), false)
     for (let i = ei0.segmentIndex + 1; i <= ei1.segmentIndex; i++) {
       coordList.add(this._edge.getCoordinate(i))
@@ -160,51 +160,51 @@ export default class SegmentNodeList {
   }
 }
 
-class NodeVertexIterator {
-  constructor () {
-    this._nodeList = null
-    this._edge = null
-    this._nodeIt = null
-    this._currNode = null
-    this._nextNode = null
-    this._currSegIndex = 0
-    let nodeList = arguments[0]
-    this._nodeList = nodeList
-    this._edge = nodeList.getEdge()
-    this._nodeIt = nodeList.iterator()
-    this.readNextNode()
-  }
-  next () {
-    if (this._currNode === null) {
-      this._currNode = this._nextNode
-      this._currSegIndex = this._currNode.segmentIndex
-      this.readNextNode()
-      return this._currNode
-    }
-    if (this._nextNode === null) return null
-    if (this._nextNode.segmentIndex === this._currNode.segmentIndex) {
-      this._currNode = this._nextNode
-      this._currSegIndex = this._currNode.segmentIndex
-      this.readNextNode()
-      return this._currNode
-    }
-    if (this._nextNode.segmentIndex > this._currNode.segmentIndex) {}
-    return null
-  }
-  remove () {
-    throw new UnsupportedOperationException(this.getClass().getName())
-  }
-  hasNext () {
-    if (this._nextNode === null) return false
-    return true
-  }
-  readNextNode () {
-    if (this._nodeIt.hasNext()) this._nextNode = this._nodeIt.next(); else this._nextNode = null
-  }
-  interfaces_ () {
-    return [Iterator]
-  }
-  getClass () {
-    return NodeVertexIterator
-  }
-}
+// class NodeVertexIterator {
+//   constructor () {
+//     this._nodeList = null
+//     this._edge = null
+//     this._nodeIt = null
+//     this._currNode = null
+//     this._nextNode = null
+//     this._currSegIndex = 0
+//     let nodeList = arguments[0]
+//     this._nodeList = nodeList
+//     this._edge = nodeList.getEdge()
+//     this._nodeIt = nodeList.iterator()
+//     this.readNextNode()
+//   }
+//   next () {
+//     if (this._currNode === null) {
+//       this._currNode = this._nextNode
+//       this._currSegIndex = this._currNode.segmentIndex
+//       this.readNextNode()
+//       return this._currNode
+//     }
+//     if (this._nextNode === null) return null
+//     if (this._nextNode.segmentIndex === this._currNode.segmentIndex) {
+//       this._currNode = this._nextNode
+//       this._currSegIndex = this._currNode.segmentIndex
+//       this.readNextNode()
+//       return this._currNode
+//     }
+//     if (this._nextNode.segmentIndex > this._currNode.segmentIndex) {}
+//     return null
+//   }
+//   remove () {
+//     // throw new UnsupportedOperationException(this.getClass().getName())
+//   }
+//   hasNext () {
+//     if (this._nextNode === null) return false
+//     return true
+//   }
+//   readNextNode () {
+//     if (this._nodeIt.hasNext()) this._nextNode = this._nodeIt.next(); else this._nextNode = null
+//   }
+//   interfaces_ () {
+//     return [Iterator]
+//   }
+//   getClass () {
+//     return NodeVertexIterator
+//   }
+// }

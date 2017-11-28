@@ -39,7 +39,7 @@ export default class GeometryCollectionIterator {
     return obj
   }
   remove () {
-    throw new UnsupportedOperationException(this.getClass().getName())
+    throw new Error(this.getClass().getName())
   }
   hasNext () {
     if (this._atStart) {

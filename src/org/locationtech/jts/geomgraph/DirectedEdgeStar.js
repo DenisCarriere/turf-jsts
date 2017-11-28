@@ -37,6 +37,7 @@ export default class DirectedEdgeStar extends EdgeEndStar {
           incoming.setNext(nextOut)
           state = this._SCANNING_FOR_INCOMING
           break
+        default:
       }
     }
     if (state === this._LINKING_TO_OUTGOING) {
@@ -157,6 +158,7 @@ export default class DirectedEdgeStar extends EdgeEndStar {
           incoming.setNextMin(nextOut)
           state = this._SCANNING_FOR_INCOMING
           break
+        default:
       }
     }
     if (state === this._LINKING_TO_OUTGOING) {

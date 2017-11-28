@@ -219,7 +219,7 @@ export default class GeometryGraph extends PlanarGraph {
       else if (g instanceof MultiLineString) this.addCollection(g)
       else if (g instanceof MultiPolygon) this.addCollection(g)
       else if (g instanceof GeometryCollection) this.addCollection(g)
-      else throw new UnsupportedOperationException(g.getClass().getName())
+      else throw new Error(g.getClass().getName())
     } else return PlanarGraph.prototype.add.apply(this, arguments)
   }
   addCollection (gc) {

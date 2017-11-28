@@ -76,6 +76,7 @@ export default class CoordinateArraySequence {
         return this._coordinates[index].y
       case CoordinateSequence.Z:
         return this._coordinates[index].z
+      default:
     }
     return Double.NaN
   }

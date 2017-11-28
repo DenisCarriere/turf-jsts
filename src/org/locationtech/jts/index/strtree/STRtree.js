@@ -198,7 +198,7 @@ export default class STRtree extends AbstractSTRtree {
   static get intersectsOp () {
     return {
       interfaces_: function () {
-        return [IntersectsOp]
+        return [AbstractSTRtree.IntersectsOp]
       },
       intersects: function (aBounds, bBounds) {
         return aBounds.intersects(bBounds)

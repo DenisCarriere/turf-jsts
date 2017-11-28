@@ -35,6 +35,7 @@ export default class Dimension {
         return Dimension.SYM_L
       case Dimension.A:
         return Dimension.SYM_A
+      default:
     }
     throw new IllegalArgumentException('Unknown dimension value: ' + dimensionValue)
   }
@@ -52,6 +53,7 @@ export default class Dimension {
         return Dimension.L
       case Dimension.SYM_A:
         return Dimension.A
+      default:
     }
     throw new IllegalArgumentException('Unknown dimension symbol: ' + dimensionSymbol)
   }

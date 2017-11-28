@@ -206,7 +206,7 @@ export default class LineSegment {
     var ux = 0.0
     var uy = 0.0
     if (offsetDistance !== 0.0) {
-      if (len <= 0.0) throw new IllegalStateException('Cannot compute offset from zero-length line segment')
+      if (len <= 0.0) throw new Error('Cannot compute offset from zero-length line segment')
       ux = offsetDistance * dx / len
       uy = offsetDistance * dy / len
     }

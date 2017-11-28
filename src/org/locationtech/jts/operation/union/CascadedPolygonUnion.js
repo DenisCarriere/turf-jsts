@@ -50,7 +50,7 @@ export default class CascadedPolygonUnion {
     return this.unionUsingEnvelopeIntersection(g0, g1, commonEnv)
   }
   union () {
-    if (this._inputPolys === null) throw new IllegalStateException('union() method cannot be called twice')
+    if (this._inputPolys === null) throw new Error('union() method cannot be called twice')
     if (this._inputPolys.isEmpty()) return null
     this._geomFactory = this._inputPolys.iterator().next().getFactory()
     const index = new STRtree(CascadedPolygonUnion.STRTREE_NODE_CAPACITY)

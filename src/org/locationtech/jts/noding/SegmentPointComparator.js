@@ -33,6 +33,7 @@ export default class SegmentPointComparator {
         return SegmentPointComparator.compareValue(-ySign, xSign)
       case 7:
         return SegmentPointComparator.compareValue(xSign, -ySign)
+      default:
     }
     Assert.shouldNeverReachHere('invalid octant value')
     return 0

@@ -94,6 +94,7 @@ export default class OffsetCurveBuilder {
       case BufferParameters.CAP_SQUARE:
         segGen.createSquare(pt)
         break
+      default:
     }
   }
   getLineCurve (inputPts, distance) {

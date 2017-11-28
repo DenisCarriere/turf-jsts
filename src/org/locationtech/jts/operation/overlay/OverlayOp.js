@@ -269,6 +269,7 @@ OverlayOp.resultDimension = function (opCode, g0, g1) {
     case OverlayOp.SYMDIFFERENCE:
       resultDimension = Math.max(dim0, dim1)
       break
+    default:
   }
   return resultDimension
 }
@@ -287,6 +288,7 @@ OverlayOp.createEmptyResult = function (overlayOpCode, a, b, geomFact) {
     case 2:
       result = geomFact.createPolygon()
       break
+    default:
   }
   return result
 }
@@ -319,6 +321,7 @@ OverlayOp.isResultOfOp = function () {
         return loc0 === Location.INTERIOR && loc1 !== Location.INTERIOR
       case OverlayOp.SYMDIFFERENCE:
         return (loc0 === Location.INTERIOR && loc1 !== Location.INTERIOR) || (loc0 !== Location.INTERIOR && loc1 === Location.INTERIOR)
+      default:
     }
     return false
   }

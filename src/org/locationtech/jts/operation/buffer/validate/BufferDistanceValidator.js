@@ -32,7 +32,7 @@ export default class BufferDistanceValidator {
       var pts = haus.getCoordinates()
       this._errorLocation = pts[1]
       this._errorIndicator = input.getFactory().createLineString(pts)
-      this._errMsg = 'Distance between buffer curve and input is too large ' + '(' + this._maxDistanceFound + ' at ' + WKTWriter.toLineString(pts[0], pts[1]) + ')'
+      this._errMsg = 'Distance between buffer curve and input is too large (' + this._maxDistanceFound + ' at ' + WKTWriter.toLineString(pts[0], pts[1]) + ')'
     }
   }
   isValid () {
@@ -71,7 +71,7 @@ export default class BufferDistanceValidator {
       var pts = distOp.nearestPoints()
       this._errorLocation = distOp.nearestPoints()[1]
       this._errorIndicator = g1.getFactory().createLineString(pts)
-      this._errMsg = 'Distance between buffer curve and input is too small ' + '(' + this._minDistanceFound + ' at ' + WKTWriter.toLineString(pts[0], pts[1]) + ' )'
+      this._errMsg = 'Distance between buffer curve and input is too small (' + this._minDistanceFound + ' at ' + WKTWriter.toLineString(pts[0], pts[1]) + ' )'
     }
   }
   checkPositiveValid () {

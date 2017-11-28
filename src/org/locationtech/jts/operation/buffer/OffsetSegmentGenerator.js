@@ -85,6 +85,7 @@ export default class OffsetSegmentGenerator {
         this._segList.addPt(squareCapLOffset)
         this._segList.addPt(squareCapROffset)
         break
+      default:
     }
   }
   getCoordinates () {

@@ -63,7 +63,7 @@ export default class Point extends Geometry {
   }
   getX () {
     if (this.getCoordinate() === null) {
-      throw new IllegalStateException('getX called on empty Point')
+      throw new Error('getX called on empty Point')
     }
     return this.getCoordinate().x
   }
@@ -118,7 +118,7 @@ export default class Point extends Geometry {
   }
   getY () {
     if (this.getCoordinate() === null) {
-      throw new IllegalStateException('getY called on empty Point')
+      throw new Error('getY called on empty Point')
     }
     return this.getCoordinate().y
   }

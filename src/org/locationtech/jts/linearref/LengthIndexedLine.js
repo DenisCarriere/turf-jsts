@@ -1,4 +1,4 @@
-import LocationIndexedLine from './LocationIndexedLine'
+// import LocationIndexedLine from './LocationIndexedLine'
 import LengthIndexOfPoint from './LengthIndexOfPoint'
 import LocationIndexOfLine from './LocationIndexOfLine'
 import LengthLocationMap from './LengthLocationMap'
@@ -61,7 +61,7 @@ export default class LengthIndexedLine {
     return LengthIndexOfPoint.indexOfAfter(this._linearGeom, pt, minIndex)
   }
   extractLine (startIndex, endIndex) {
-    const lil = new LocationIndexedLine(this._linearGeom)
+    // const lil = new LocationIndexedLine(this._linearGeom)
     const startIndex2 = this.clampIndex(startIndex)
     const endIndex2 = this.clampIndex(endIndex)
     const resolveStartLower = startIndex2 === endIndex2

@@ -20,7 +20,7 @@ export default class SIRtree extends AbstractSTRtree {
     }
     this._intersectsOp = {
       interfaces_: function () {
-        return [IntersectsOp]
+        return [AbstractSTRtree.IntersectsOp]
       },
       intersects: function (aBounds, bBounds) {
         return aBounds.intersects(bBounds)
