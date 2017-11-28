@@ -6,6 +6,8 @@ yarn-debug.log*
 yarn-error.log*
 
 .esm-cache
+jsts.js
+jsts.min.js
 main.js
 
 # Runtime data

@@ -1,13 +1,11 @@
-export * from './src/org/locationtech/jts/geom'
-export * from './src/org/locationtech/jts/algorithm'
-export * from './src/org/locationtech/jts/densify'
-export * from './src/org/locationtech/jts/dissolve'
-export * from './src/org/locationtech/jts/geomgraph'
-export * from './src/org/locationtech/jts/index'
-export * from './src/org/locationtech/jts/io'
-export * from './src/org/locationtech/jts/noding'
-export * from './src/org/locationtech/jts/operation'
-export * from './src/org/locationtech/jts/precision'
-export * from './src/org/locationtech/jts/simplify'
-export * from './src/org/locationtech/jts/triangulate'
-export * from './src/org/locationtech/jts/linearref'
+/**
+ * Turf JSTS dependant modules
+ *
+ * GeoJSONReader => all modules
+ * GeoJSONWriter => all modules
+ * OverlayOp => @turf/intersect & @turf/difference
+ * UnionOp => @turf/union
+ * BufferOp => @turf/buffer
+ */
+export { GeoJSONReader, GeoJSONWriter } from './src/org/locationtech/jts/io'
+export { OverlayOp, UnionOp, BufferOp } from './src/org/locationtech/jts/operation'

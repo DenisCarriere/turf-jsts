@@ -2,12 +2,13 @@
   "name": "turf-jsts",
   "description": "A JavaScript library of spatial predicates and functions for processing geometry",
   "version": "1.0.0",
-  "main": "main",
+  "main": "jsts.js",
   "module": "index",
   "jsnext:main": "index",
   "files": [
     "index.js",
-    "main.js",
+    "jsts.js",
+    "jsts.min.js",
     "src"
   ],
   "author": "Björn Harrtell <bjorn@wololo.org>",
@@ -29,7 +30,6 @@
     "babel-core": "*",
     "babel-plugin-external-helpers": "*",
     "babel-preset-env": "*",
-    "babel-register": "*",
     "chai": "*",
     "cheerio": "*",
     "codecov": "*",
@@ -41,9 +41,9 @@
     "nyc": "*",
     "rollup": "*",
     "rollup-plugin-babel": "*",
-    "rollup-plugin-includepaths": "*",
-    "rollup-plugin-replace": "*",
+    "rollup-plugin-uglify": "*",
     "standard": "*",
+    "uglify-es": "*",
     "uglify-js": "*"
   },
   "repository": {

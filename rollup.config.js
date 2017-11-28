@@ -1,11 +1,23 @@
 import babel from 'rollup-plugin-babel'
+import uglify from 'rollup-plugin-uglify'
 
-export default {
+export default [{
   input: 'index.js',
+  extend: true,
   output: {
-    extend: true,
-    file: 'main.js',
-    format: 'cjs'
+    file: 'jsts.js',
+    format: 'umd',
+    name: 'jsts'
   },
   plugins: [babel()]
-}
+},
+{
+  input: 'index.js',
+  extend: true,
+  output: {
+    file: 'jsts.min.js',
+    format: 'umd',
+    name: 'jsts'
+  },
+  plugins: [babel(), uglify()]
+}]
