@@ -5,15 +5,6 @@ export default [{
   input: 'src/index.js',
   extend: true,
   output: {
-    file: 'jsts.mjs',
-    format: 'es'
-  },
-  plugins: []
-},
-{
-  input: 'src/index.js',
-  extend: true,
-  output: {
     file: 'jsts.js',
     format: 'cjs'
   },

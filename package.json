@@ -3,13 +3,12 @@
   "description": "A JavaScript library of spatial predicates and functions for processing geometry",
   "version": "1.0.1",
   "main": "jsts.js",
-  "module": "jsts.mjs",
-  "jsnext:main": "jsts.mjs",
+  "module": "src/index",
+  "jsnext:main": "src/index",
   "unpkg": "jsts.min.js",
   "jsdelivr": "jsts.min.js",
   "files": [
     "jsts.js",
-    "jsts.mjs",
     "jsts.min.js",
     "src"
   ],
