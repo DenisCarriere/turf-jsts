@@ -76,6 +76,7 @@ export default class Coordinate {
         return this.y
       case Coordinate.Z:
         return this.z
+      default:
     }
     throw new IllegalArgumentException('Invalid ordinate index: ' + ordinateIndex)
   }
@@ -151,7 +152,7 @@ export default class Coordinate {
     if (arguments.length === 1) {
       const x = arguments[0]
       const f = Double.doubleToLongBits(x)
-      return Math.trunc(f ^ f >>> 32)
+      return Math.trunc((f ^ f) >>> 32)
     }
   }
   static get DimensionalComparator () { return DimensionalComparator }

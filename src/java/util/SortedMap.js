@@ -7,5 +7,4 @@ import Map from './Map'
  * @constructor
  * @private
  */
-export default function SortedMap () {};
-SortedMap.prototype = new Map()
+export default class SortedMap extends Map {}

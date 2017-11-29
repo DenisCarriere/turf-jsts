@@ -38,13 +38,9 @@ TreeMap.prototype.get = function (key) {
   let p = this.root_
   while (p !== null) {
     const cmp = key['compareTo'](p.key)
-    if (cmp < 0) {
-      p = p.left
-    } else if (cmp > 0) {
-      p = p.right
-    } else {
-      return p.value
-    }
+    if (cmp < 0) p = p.left
+    else if (cmp > 0) p = p.right
+    else return p.value
   }
   return null
 }

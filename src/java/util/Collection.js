@@ -6,53 +6,53 @@
  * @constructor
  * @private
  */
-export default function Collection () {};
+export default class Collection {
+  /**
+   * Ensures that this collection contains the specified element (optional
+   * operation).
+   * @param {Object} e
+   * @return {boolean}
+   */
+  add () {}
 
-/**
- * Ensures that this collection contains the specified element (optional
- * operation).
- * @param {Object} e
- * @return {boolean}
- */
-Collection.prototype.add = function () {}
+  /**
+   * Appends all of the elements in the specified collection to the end of this
+   * list, in the order that they are returned by the specified collection's
+   * iterator (optional operation).
+   * @param {javascript.util.Collection} c
+   * @return {boolean}
+   */
+  addAll () {}
 
-/**
- * Appends all of the elements in the specified collection to the end of this
- * list, in the order that they are returned by the specified collection's
- * iterator (optional operation).
- * @param {javascript.util.Collection} c
- * @return {boolean}
- */
-Collection.prototype.addAll = function () {}
+  /**
+   * Returns true if this collection contains no elements.
+   * @return {boolean}
+   */
+  isEmpty () {}
 
-/**
- * Returns true if this collection contains no elements.
- * @return {boolean}
- */
-Collection.prototype.isEmpty = function () {}
+  /**
+   * Returns an iterator over the elements in this collection.
+   * @return {javascript.util.Iterator}
+   */
+  iterator () {}
 
-/**
- * Returns an iterator over the elements in this collection.
- * @return {javascript.util.Iterator}
- */
-Collection.prototype.iterator = function () {}
+  /**
+   * Returns an iterator over the elements in this collection.
+   * @return {number}
+   */
+  size () {}
 
-/**
- * Returns an iterator over the elements in this collection.
- * @return {number}
- */
-Collection.prototype.size = function () {}
+  /**
+   * Returns an array containing all of the elements in this collection.
+   * @return {Array}
+   */
+  toArray () {}
 
-/**
- * Returns an array containing all of the elements in this collection.
- * @return {Array}
- */
-Collection.prototype.toArray = function () {}
-
-/**
- * Removes a single instance of the specified element from this collection if it
- * is present. (optional)
- * @param {Object} e
- * @return {boolean}
- */
-Collection.prototype.remove = function () {}
+  /**
+   * Removes a single instance of the specified element from this collection if it
+   * is present. (optional)
+   * @param {Object} e
+   * @return {boolean}
+   */
+  remove () {}
+}

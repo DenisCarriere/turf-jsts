@@ -1,6 +1,6 @@
 import Collection from './Collection'
 import IndexOutOfBoundsException from './IndexOutOfBoundsException'
-// import Iterator from './Iterator'
+import Iterator from './Iterator'
 import List from './List'
 import NoSuchElementException from './NoSuchElementException'
 // import OperationNotSupported from './OperationNotSupported'
@@ -11,118 +11,115 @@ import NoSuchElementException from './NoSuchElementException'
  * @extends List
  * @private
  */
-export default function ArrayList () {
-  /**
-   * @type {Array}
-   * @private
-  */
-  this.array_ = []
+export default class ArrayList extends List {
+  constructor () {
+    super()
+    this.array_ = []
 
-  if (arguments[0] instanceof Collection) {
-    this.addAll(arguments[0])
-  }
-};
-ArrayList.prototype = Object.create(List.prototype)
-ArrayList.prototype.constructor = ArrayList
-
-ArrayList.prototype.ensureCapacity = function () {}
-ArrayList.prototype.interfaces_ = function () { return [List, Collection] }
-
-/**
- * @override
- */
-ArrayList.prototype.add = function (e) {
-  if (arguments.length === 1) {
-    this.array_.push(e)
-  } else {
-    this.array_.splice(arguments[0], arguments[1])
-  }
-  return true
-}
-
-ArrayList.prototype.clear = function () {
-  this.array_ = []
-}
-
-/**
- * @override
- */
-ArrayList.prototype.addAll = function (c) {
-  for (var i = c.iterator(); i.hasNext();) {
-    this.add(i.next())
-  }
-  return true
-}
-
-/**
- * @override
- */
-ArrayList.prototype.set = function (index, element) {
-  var oldElement = this.array_[index]
-  this.array_[index] = element
-  return oldElement
-}
-
-/**
- * @override
- */
-ArrayList.prototype.iterator = function () {
-  return new Iterator_(this)
-}
-
-/**
- * @override
- */
-ArrayList.prototype.get = function (index) {
-  if (index < 0 || index >= this.size()) {
-    throw new IndexOutOfBoundsException()
-  }
-
-  return this.array_[index]
-}
-
-/**
- * @override
- */
-ArrayList.prototype.isEmpty = function () {
-  return this.array_.length === 0
-}
-
-/**
- * @override
- */
-ArrayList.prototype.size = function () {
-  return this.array_.length
-}
-
-/**
- * @override
- */
-ArrayList.prototype.toArray = function () {
-  var array = []
-
-  for (var i = 0, len = this.array_.length; i < len; i++) {
-    array.push(this.array_[i])
-  }
-
-  return array
-}
-
-/**
- * @override
- */
-ArrayList.prototype.remove = function (o) {
-  var found = false
-
-  for (var i = 0, len = this.array_.length; i < len; i++) {
-    if (this.array_[i] === o) {
-      this.array_.splice(i, 1)
-      found = true
-      break
+    if (arguments[0] instanceof Collection) {
+      this.addAll(arguments[0])
     }
   }
 
-  return found
+  ensureCapacity () {}
+  interfaces_ () { return [List, Collection] }
+
+  /**
+   * @override
+   */
+  add (e) {
+    if (arguments.length === 1) {
+      this.array_.push(e)
+    } else {
+      this.array_.splice(arguments[0], arguments[1])
+    }
+    return true
+  }
+
+  clear () {
+    this.array_ = []
+  }
+
+  /**
+   * @override
+   */
+  addAll (c) {
+    for (var i = c.iterator(); i.hasNext();) {
+      this.add(i.next())
+    }
+    return true
+  }
+
+  /**
+   * @override
+   */
+  set (index, element) {
+    var oldElement = this.array_[index]
+    this.array_[index] = element
+    return oldElement
+  }
+
+  /**
+   * @override
+   */
+  iterator () {
+    return new Iterator_(this)
+  }
+
+  /**
+   * @override
+   */
+  get (index) {
+    if (index < 0 || index >= this.size()) {
+      throw new IndexOutOfBoundsException()
+    }
+
+    return this.array_[index]
+  }
+
+  /**
+   * @override
+   */
+  isEmpty () {
+    return this.array_.length === 0
+  }
+
+  /**
+   * @override
+   */
+  size () {
+    return this.array_.length
+  }
+
+  /**
+   * @override
+   */
+  toArray () {
+    var array = []
+
+    for (var i = 0, len = this.array_.length; i < len; i++) {
+      array.push(this.array_[i])
+    }
+
+    return array
+  }
+
+  /**
+   * @override
+   */
+  remove (o) {
+    var found = false
+
+    for (var i = 0, len = this.array_.length; i < len; i++) {
+      if (this.array_[i] === o) {
+        this.array_.splice(i, 1)
+        found = true
+        break
+      }
+    }
+
+    return found
+  }
 }
 
 /**
@@ -131,51 +128,54 @@ ArrayList.prototype.remove = function (o) {
  * @constructor
  * @private
  */
-var Iterator_ = function (arrayList) {
-  /**
-   * @type {ArrayList}
-   * @private
-  */
-  this.arrayList_ = arrayList
-  /**
-   * @type {number}
-   * @private
-  */
-  this.position_ = 0
-}
-
-/**
- * @override
- */
-Iterator_.prototype.next = function () {
-  if (this.position_ === this.arrayList_.size()) {
-    throw new NoSuchElementException()
+class Iterator_ extends Iterator {
+  constructor (arrayList) {
+    super()
+    /**
+     * @type {ArrayList}
+     * @private
+    */
+    this.arrayList_ = arrayList
+    /**
+     * @type {number}
+     * @private
+    */
+    this.position_ = 0
   }
-  return this.arrayList_.get(this.position_++)
-}
 
-/**
- * @override
- */
-Iterator_.prototype.hasNext = function () {
-  if (this.position_ < this.arrayList_.size()) {
-    return true
-  } else {
-    return false
+  /**
+   * @override
+   */
+  next () {
+    if (this.position_ === this.arrayList_.size()) {
+      throw new NoSuchElementException()
+    }
+    return this.arrayList_.get(this.position_++)
   }
-}
 
-/**
- * TODO: should be in ListIterator
- * @override
- */
-Iterator_.prototype.set = function (element) {
-  return this.arrayList_.set(this.position_ - 1, element)
-}
+  /**
+   * @override
+   */
+  hasNext () {
+    if (this.position_ < this.arrayList_.size()) {
+      return true
+    } else {
+      return false
+    }
+  }
 
-/**
- * @override
- */
-Iterator_.prototype.remove = function () {
-  this.arrayList_.remove(this.arrayList_.get(this.position_))
+  /**
+   * TODO: should be in ListIterator
+   * @override
+   */
+  set (element) {
+    return this.arrayList_.set(this.position_ - 1, element)
+  }
+
+  /**
+   * @override
+   */
+  remove () {
+    this.arrayList_.remove(this.arrayList_.get(this.position_))
+  }
 }

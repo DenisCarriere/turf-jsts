@@ -1,15 +1,17 @@
 /**
- * @param {string=} message Optional message
+ * @param {string} [message] Optional message
  * @extends {Error}
  * @constructor
  * @private
  */
-export default function IndexOutOfBoundsException (message) {
-  this.message = message || ''
-};
-IndexOutOfBoundsException.prototype = new Error()
+export default class IndexOutOfBoundsException extends Error {
+  constructor (message) {
+    super()
+    this.message = message || ''
+  }
 
-/**
- * @type {string}
- */
-IndexOutOfBoundsException.prototype.name = 'IndexOutOfBoundsException'
+  /**
+   * @type {string}
+   */
+  static get name () { return 'IndexOutOfBoundsException' }
+}
