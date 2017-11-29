@@ -9,6 +9,7 @@
   "jsdelivr": "jsts.min.js",
   "files": [
     "jsts.js",
+    "jsts.mjs",
     "jsts.min.js",
     "src"
   ],
@@ -40,6 +41,7 @@
     "mocha": "*",
     "mocha-lcov-reporter": "*",
     "nyc": "*",
+    "react-scripts": "*",
     "rollup": "*",
     "rollup-plugin-babel": "*",
     "rollup-plugin-uglify": "*",
