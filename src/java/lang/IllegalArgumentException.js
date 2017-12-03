@@ -1,1 +1,1 @@
-export default function IllegalArgumentException () {}
+export default class IllegalArgumentException {}

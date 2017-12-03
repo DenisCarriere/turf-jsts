@@ -1,9 +1,8 @@
-export default function RuntimeException (message) {
-  this.name = 'RuntimeException'
-  this.message = message
-  this.stack = (new Error()).stack
-  Error.call(this, message)
+export default class RuntimeException extends Error {
+  constructor (message) {
+    super(message)
+    this.name = 'RuntimeException'
+    this.message = message
+    this.stack = (new Error()).stack
+  }
 }
-
-RuntimeException.prototype = Object.create(Error.prototype)
-RuntimeException.prototype.constructor = Error

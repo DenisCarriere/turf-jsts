@@ -1,19 +1,19 @@
 import Arrays from './Arrays'
 import ArrayList from './ArrayList'
 
-const Collections = {
-  reverseOrder: function () {
+export default class Collections {
+  static reverseOrder () {
     return {
       compare (a, b) {
         return b.compareTo(a)
       }
     }
-  },
-  min: function (l) {
+  }
+  static min (l) {
     Collections.sort(l)
     return l.get(0)
-  },
-  sort: function (l, c) {
+  }
+  static sort (l, c) {
     const a = l.toArray()
     if (c) {
       Arrays.sort(a, c)
@@ -25,12 +25,10 @@ const Collections = {
       i.next()
       i.set(a[pos])
     }
-  },
-  singletonList: function (o) {
+  }
+  static singletonList (o) {
     const arrayList = new ArrayList()
     arrayList.add(o)
     return arrayList
   }
 }
-
-export default Collections
