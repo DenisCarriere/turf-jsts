@@ -1,4 +1,11 @@
 /**
+ * Polyfill for IE support
+ */
+import './Array'
+import './Number'
+import './Math'
+
+/**
  * Turf JSTS dependant modules
  *
  * GeoJSONReader => all modules
