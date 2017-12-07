@@ -4,9 +4,7 @@
   "version": "1.1.2",
   "main": "jsts.js",
   "module": "jsts.mjs",
-  "jsnext:main": "jsts.mjs",
-  "unpkg": "jsts.min.js",
-  "jsdelivr": "jsts.min.js",
+  "browser": "jsts.min.js",
   "files": [
     "jsts.js",
     "jsts.mjs",

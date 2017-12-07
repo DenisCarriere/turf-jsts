@@ -1,15 +1,17 @@
 import buble from 'rollup-plugin-buble'
 import uglify from 'rollup-plugin-uglify'
 
+const input = 'src/index.js'
+
 export default [{
-  input: 'src/index.js',
+  input,
   output: {
     file: 'jsts.mjs',
     format: 'es'
   }
 },
 {
-  input: 'src/index.js',
+  input,
   output: {
     file: 'jsts.js',
     format: 'cjs'
@@ -17,7 +19,7 @@ export default [{
   plugins: [buble()]
 },
 {
-  input: 'src/index.js',
+  input,
   output: {
     file: 'jsts.min.js',
     format: 'umd',
