@@ -8,7 +8,8 @@ export default [{
   output: {
     file: 'jsts.mjs',
     format: 'es'
-  }
+  },
+  plugins: [buble()]
 },
 {
   input,
