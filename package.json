@@ -24,7 +24,7 @@
     "Topology",
     "Geometry"
   ],
-  "license": "(EDL-1.0 OR EPL-1.0)",
+  "license": "BSD-3-Clause",
   "devDependencies": {
     "@std/esm": "*",
     "chai": "*",
